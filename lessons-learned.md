@@ -67,24 +67,33 @@ A reference for the next person or agent who extends this vault. Rule of thumb: 
 
 ### 4.4 Base, sidebar, CI
 - `base: '/qms-demo/'` must match the GitHub repository name and the Pages URL.
-- `site/.vitepress/build-sidebar.mjs` generates `sidebar.json`. Never hand-edit the generated file. It now generates **2 groups, 72 pages** from the published scope (it was 18 groups, 148 pages when the whole vault was published).
+- `site/.vitepress/build-sidebar.mjs` generates `sidebar.json`. Never hand-edit the generated file. It now generates **1 group, 71 pages** from the published scope (it was 18 groups, 148 pages when the whole vault was published).
 - GitHub Pages: **Settings → Pages → Build and deployment → Source = GitHub Actions**.
 - CI uses `npm ci` (lock file committed), `npm run docs:build`, then uploads `site/.vitepress/dist`.
 - Never commit build output or installed dependencies.
 
-### 4.5 Curated publishing — publish only guides and instructions
+### 4.5 Curated publishing — publish only guides
 
-The whole-vault site was replaced on request with a curated site containing only `guides/` + `instructions/` (plus `index.md` as the homepage).
+The whole-vault site was replaced by a curated site containing only `guides/` (plus `index.md` as the homepage). Work instructions were first included, then removed on request; the note `instructions/WI-PROD-003.md` is untouched in the vault and is simply excluded from the build.
 
-- **One allowlist, three consumers.** `site/.vitepress/publish-scope.mjs` exports `PUBLISHED_FOLDERS`, `PUBLISHED_ROOT_FILES`, `isPublished()` and `buildExcludes()`. `config.mts`, `build-sidebar.mjs` and `wikilinks.mjs` all import it. If scope is scattered across files, they drift.
+- **One allowlist, three consumers.** `site/.vitepress/publish-scope.mjs` exports `PUBLISHED_FOLDERS`, `PUBLISHED_ROOT_FILES`, `isPublished()` and `buildExcludes()`. `config.mts`, `build-sidebar.mjs` and `wikilinks.mjs` all import it. If scope is scattered across files, they drift. Today `PUBLISHED_FOLDERS = ['guides']`.
 - **Exclude, don't copy.** VitePress `srcExclude` takes glob patterns passed to `glob`'s `ignore`. `buildExcludes()` derives them from the folders that actually exist, so a new folder is excluded by default — fail closed, not open. `srcExclude` is `string[]` in VitePress 1.6.4. Copying into a `published/` folder would create a second copy that can drift.
 - **The homepage still builds.** `index.md` is in `PUBLISHED_ROOT_FILES`; it is reached from the nav, not the sidebar.
-- **Links to unpublished notes are the subtle part.** The 71 guides contain ~40 "go deeper" wikilinks to policies, registers, ISO clauses, records and people. `buildNoteMap()` now returns two structures: `published` (stem/route → route for published files) and `all` (every stem in the vault). `wikilinkPlugin()` checks `published` first for a real link, then `all` to decide between "exists but not published" and "genuinely missing".
+- **Links to unpublished notes are the subtle part.** The 71 guides contain ~40 "go deeper" wikilinks to policies, registers, ISO clauses, records, work instructions and people. `buildNoteMap()` now returns two structures: `published` (stem/route → route for published files) and `all` (every stem in the vault). `wikilinkPlugin()` checks `published` first for a real link, then `all` to decide between "exists but not published" and "genuinely missing".
 - **Render unpublished targets as a marker, not a 404.** The plugin emits `html_inline` tokens wrapping a `<span class="wikilink-unpublished" title="…">`. A tiny custom theme at `site/.vitepress/theme/index.js` imports `site/.vitepress/theme/custom.css`, which dims the label, dotted-underlines it and appends " (not published)" via `::after`. A plain VitePress default-theme extension is safe — the hydration bug was caused by aliasing Vue, not by a custom theme.
-- **Trim the nav too.** Removing folders is not enough if the top nav still links to `/policies/...`; change `themeConfig.nav` in `config.mts` to Home / Guides / Instructions.
-- **Verify beyond the build.** Check `site/.vitepress/dist/` contains only `guides/`, `instructions/`, `index.html` and `404.html`; grep for `wikilink-unpublished` in a generated guide; confirm in a browser that the marker is visibly dimmed, sidebar toggles still work and the theme switch still responds.
+- **Trim the nav too.** Removing folders is not enough if the top nav still links to `/instructions/...` or `/policies/...`; change `themeConfig.nav` in `config.mts`. It is now Home / Guides only, and `index.md` no longer links to the work instruction.
+- **Verify beyond the build.** Check `site/.vitepress/dist/` contains only `guides/`, `index.html` and `404.html`; grep for `wikilink-unpublished` in a generated guide; confirm in a browser that the marker is visibly dimmed, sidebar toggles still work and the theme switch still responds.
 
 > A public site is a **filter over the vault**, not a second vault. The filter belongs in one file and must be visible in the generated output.
+
+### 4.6 Sidebar hierarchy, Nord styling and Mermaid
+
+- **Numbers encode structure.** Guide filenames like `01-orient`, `01.2-types-and-taxonomy` and `02.2.1-assign-type-and-id` let `build-sidebar.mjs` build a real tree: chapter → section → detail. VitePress renders nested `items` as progressively indented, collapsible levels. Flat alphabetical lists are hard to scan; the tree mirrors how the course was designed.
+- **DOM level is one deeper than expected.** The group wrapper is `VPSidebarItem.level-0`, so chapters are `level-1`, sections `level-2` and leaves `level-3`. Style `level-1` as the big chapter heading and `level-3` as the smallest detail. Getting this off by one makes the group title enormous.
+- **Nord lives in CSS variables.** `theme/custom.css` overrides `--vp-c-*` variables twice: `:root` for Snow Storm surfaces with Frost accents, `.dark` for Polar Night surfaces with brighter Frost. One palette, two appearances; no separate stylesheets. Chapter items get a Frost left border to make 01 / 02 / 03 visually primary.
+- **Mermaid needs a build step and a client step.** `mermaid.mjs` rewrites mermaid fences into `<div class="mermaid" data-source="…">`; `theme/MermaidMount.vue` dynamically imports Mermaid, initializes it with Nord `themeVariables`, and renders on mount, on route change and on a `MutationObserver` on the `html` class (theme switch). Use dynamic import so SSR never touches Mermaid.
+- **VitePress collapses literal newlines in raw HTML.** The first attempt put the Mermaid source as text inside the div; Mermaid received one long line and failed with `Expecting 'NEWLINE', got 'NODE_STRING'`. The fix is to base64-encode the source into `data-source` and decode it in the browser with `TextDecoder`. Do not remove that attribute.
+- Mermaid is now a real `npm` dependency; `package-lock.json` is committed so CI installs the same version. It is the only client-side dependency added for rendering.
 
 ## 5. Git and authentication
 
@@ -116,5 +125,5 @@ The whole-vault site was replaced on request with a curated site containing only
 6. For the site: use a wikilink plugin, generate the sidebar, and **never alias Vue**.
 7. Decide the publish scope before the first deploy; keep it in one `publish-scope.mjs` module and derive exclusions, sidebar and link markers from it.
 8. Expect cross-links from published notes into excluded ones; render them as explicit "not published" markers rather than broken links.
-9. Test interactivity in a real browser (sidebar toggle, theme switch, and one unpublished marker), not just a successful build.
+9. Test interactivity in a real browser (sidebar toggle, theme switch, one unpublished marker, and one Mermaid diagram in both themes), not just a successful build.
 10. A public repo publishes whatever the build includes — verify the generated `dist/` folder before sharing widely.

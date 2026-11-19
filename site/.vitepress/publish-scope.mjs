@@ -2,7 +2,7 @@
 // The vault stays complete; only these notes are rendered by VitePress.
 // Keeping this in one module prevents config, sidebar and wikilinks drifting apart.
 
-export const PUBLISHED_FOLDERS = ['guides', 'instructions']
+export const PUBLISHED_FOLDERS = ['guides']
 export const PUBLISHED_ROOT_FILES = ['index.md']
 
 /**

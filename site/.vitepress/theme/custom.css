@@ -1,5 +1,127 @@
-/* A Vault note that exists but is intentionally not on this curated site.
-   Rendered by wikilinks.mjs as a non-clickable marker, never a dead link. */
+/* Nord palette shared by both appearances.
+   Polar Night (dark) / Snow Storm (light) + Frost accents + Aurora signals. */
+:root {
+  --nord-0: #2e3440;
+  --nord-1: #3b4252;
+  --nord-2: #434c5e;
+  --nord-3: #4c566a;
+  --nord-4: #d8dee9;
+  --nord-5: #e5e9f0;
+  --nord-6: #eceff4;
+  --nord-7: #8fbcbb;
+  --nord-8: #88c0d0;
+  --nord-9: #81a1c1;
+  --nord-10: #5e81ac;
+  --nord-11: #bf616a;
+  --nord-12: #d08770;
+  --nord-13: #ebcb8b;
+  --nord-14: #a3be8c;
+  --nord-15: #b48ead;
+}
+
+/* ---- Light appearance: Snow Storm surfaces, Frost accents ---- */
+:root {
+  --vp-c-brand-1: var(--nord-10);
+  --vp-c-brand-2: var(--nord-9);
+  --vp-c-brand-3: var(--nord-8);
+  --vp-c-brand-soft: rgba(94, 129, 172, 0.14);
+
+  --vp-c-bg: var(--nord-6);
+  --vp-c-bg-alt: var(--nord-5);
+  --vp-c-bg-elv: var(--nord-6);
+  --vp-c-bg-soft: var(--nord-5);
+
+  --vp-c-text-1: var(--nord-0);
+  --vp-c-text-2: var(--nord-2);
+  --vp-c-text-3: var(--nord-3);
+
+  --vp-c-border: var(--nord-4);
+  --vp-c-divider: var(--nord-4);
+  --vp-c-gutter: var(--nord-4);
+
+  --vp-c-danger-1: var(--nord-11);
+  --vp-c-warning-1: var(--nord-12);
+  --vp-c-success-1: var(--nord-14);
+}
+
+/* ---- Dark appearance: Polar Night surfaces, brighter Frost accents ---- */
+.dark {
+  --vp-c-brand-1: var(--nord-8);
+  --vp-c-brand-2: var(--nord-7);
+  --vp-c-brand-3: var(--nord-9);
+  --vp-c-brand-soft: rgba(136, 192, 208, 0.14);
+
+  --vp-c-bg: var(--nord-0);
+  --vp-c-bg-alt: var(--nord-1);
+  --vp-c-bg-elv: var(--nord-1);
+  --vp-c-bg-soft: var(--nord-1);
+
+  --vp-c-text-1: var(--nord-6);
+  --vp-c-text-2: var(--nord-4);
+  --vp-c-text-3: var(--nord-3);
+
+  --vp-c-border: var(--nord-3);
+  --vp-c-divider: var(--nord-2);
+  --vp-c-gutter: var(--nord-2);
+}
+
+/* ---- Sidebar: group (level 0), chapters (1), sections (2), details (3) ---- */
+.VPSidebarItem.level-0 > .item .text {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--vp-c-text-3);
+}
+
+.VPSidebarItem.level-1 > .item {
+  padding-left: 10px;
+  border-left: 3px solid var(--vp-c-brand-1);
+  border-radius: 2px;
+}
+
+.VPSidebarItem.level-1 > .item .text {
+  font-size: clamp(1rem, 0.96rem + 0.2vw, 1.1rem);
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: 0.01em;
+  color: var(--vp-c-brand-1);
+}
+
+.VPSidebarItem.level-2 > .item .text {
+  font-size: clamp(0.92rem, 0.9rem + 0.1vw, 0.98rem);
+  font-weight: 600;
+}
+
+.VPSidebarItem.level-3 > .item .text {
+  font-size: clamp(0.85rem, 0.83rem + 0.1vw, 0.9rem);
+  font-weight: 500;
+  color: var(--vp-c-text-2);
+}
+
+/* ---- Mermaid diagrams ---- */
+.mermaid {
+  margin: 1.5rem 0;
+  padding: 1.25rem;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 10px;
+  background: var(--vp-c-bg-soft);
+  overflow-x: auto;
+  text-align: center;
+}
+
+.mermaid svg {
+  max-width: 100%;
+  height: auto;
+}
+
+.mermaid-failed {
+  color: var(--vp-c-danger-1);
+  font-family: var(--vp-font-family-mono, monospace);
+  font-size: 0.9rem;
+}
+
+/* ---- Unpublished vault notes (see wikilinks.mjs) ---- */
 .wikilink-unpublished {
   color: var(--vp-c-text-3);
   text-decoration: underline dotted var(--vp-c-divider);

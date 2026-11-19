@@ -2,301 +2,342 @@
   "/": [
     {
       "text": "Guides",
-      "collapsed": true,
+      "collapsed": false,
       "items": [
-        {
-          "text": "01 — Orient: find your way around",
-          "link": "/guides/01-orient"
-        },
-        {
-          "text": "01.1 — Anatomy of a note",
-          "link": "/guides/01.1-anatomy-of-a-note"
-        },
-        {
-          "text": "01.2 — Types and taxonomy",
-          "link": "/guides/01.2-types-and-taxonomy"
-        },
-        {
-          "text": "01.3 — Views and navigation",
-          "link": "/guides/01.3-views-and-navigation"
-        },
-        {
-          "text": "01.3.1 — Filter operators",
-          "link": "/guides/01.3.1-filter-operators"
-        },
-        {
-          "text": "01.3.2 — Sorting a view",
-          "link": "/guides/01.3.2-sorting-a-view"
-        },
-        {
-          "text": "01.3.3 — View file anatomy",
-          "link": "/guides/01.3.3-view-file-anatomy"
-        },
-        {
-          "text": "01.4 — Wikilinks and backlinks",
-          "link": "/guides/01.4-wikilinks-and-backlinks"
-        },
-        {
-          "text": "01.4.1 — Body links",
-          "link": "/guides/01.4.1-body-links"
-        },
-        {
-          "text": "01.4.2 — Relationship fields and inverses",
-          "link": "/guides/01.4.2-relationship-fields-and-inverses"
-        },
-        {
-          "text": "01.4.3 — Backlinks and neighborhood",
-          "link": "/guides/01.4.3-backlinks-and-neighborhood"
-        },
-        {
-          "text": "02 — Operate: the daily pathway",
-          "link": "/guides/02-operate"
-        },
-        {
-          "text": "02.1 — Capture the condition",
-          "link": "/guides/02.1-capture-the-condition"
-        },
-        {
-          "text": "02.2 — Triage into a finding",
-          "link": "/guides/02.2-triage-into-a-finding"
-        },
-        {
-          "text": "02.2.1 — Assign type and ID",
-          "link": "/guides/02.2.1-assign-type-and-id"
-        },
-        {
-          "text": "02.2.2 — Severity, owner, due",
-          "link": "/guides/02.2.2-severity,-owner,-due"
-        },
-        {
-          "text": "02.2.3 — Tags and move",
-          "link": "/guides/02.2.3-tags-and-move"
-        },
-        {
-          "text": "02.3 — Disposition and evidence",
-          "link": "/guides/02.3-disposition-and-evidence"
-        },
-        {
-          "text": "03 — Maintain: controlled documents",
-          "link": "/guides/03-maintain"
-        },
-        {
-          "text": "03.1 — Write a policy",
-          "link": "/guides/03.1-write-a-policy"
-        },
-        {
-          "text": "03.2 — Write an SOP",
-          "link": "/guides/03.2-write-an-sop"
-        },
-        {
-          "text": "03.2.1 — Drafting the SOP",
-          "link": "/guides/03.2.1-drafting-the-sop"
-        },
-        {
-          "text": "03.2.2 — Reviewing the draft",
-          "link": "/guides/03.2.2-reviewing-the-draft"
-        },
-        {
-          "text": "03.2.3 — Approving and activating",
-          "link": "/guides/03.2.3-approving-and-activating"
-        },
-        {
-          "text": "03.2.4 — Periodic review",
-          "link": "/guides/03.2.4-periodic-review"
-        },
-        {
-          "text": "03.3 — Work instructions",
-          "link": "/guides/03.3-work-instructions"
-        },
-        {
-          "text": "03.4 — Revisions and Git",
-          "link": "/guides/03.4-revisions-and-git"
-        },
-        {
-          "text": "03.4.1 — Revision numbering",
-          "link": "/guides/03.4.1-revision-numbering"
-        },
-        {
-          "text": "03.4.2 — Commit conventions",
-          "link": "/guides/03.4.2-commit-conventions"
-        },
-        {
-          "text": "03.4.3 — Tags and rollback",
-          "link": "/guides/03.4.3-tags-and-rollback"
-        },
-        {
-          "text": "03.4.4 — Sheet synchronisation",
-          "link": "/guides/03.4.4-sheet-synchronisation"
-        },
-        {
-          "text": "03.5 — Templates and AI drafting",
-          "link": "/guides/03.5-templates-and-ai-drafting"
-        },
-        {
-          "text": "03.5.1 — Prompt anatomy",
-          "link": "/guides/03.5.1-prompt-anatomy"
-        },
-        {
-          "text": "03.5.2 — Panel or inline",
-          "link": "/guides/03.5.2-panel-or-inline"
-        },
-        {
-          "text": "03.5.3 — External MCP",
-          "link": "/guides/03.5.3-external-mcp"
-        },
-        {
-          "text": "03.5.4 — Reviewing AI drafts",
-          "link": "/guides/03.5.4-reviewing-ai-drafts"
-        },
-        {
-          "text": "04 — Monitor: the control tower",
-          "link": "/guides/04-monitor"
-        },
-        {
-          "text": "04.1 — Build a saved view",
-          "link": "/guides/04.1-build-a-saved-view"
-        },
-        {
-          "text": "04.2 — Register sheets",
-          "link": "/guides/04.2-register-sheets"
-        },
-        {
-          "text": "04.2.1 — CSV body",
-          "link": "/guides/04.2.1-csv-body"
-        },
-        {
-          "text": "04.2.2 — Formulas",
-          "link": "/guides/04.2.2-formulas"
-        },
-        {
-          "text": "04.2.3 — Wikilinks in cells",
-          "link": "/guides/04.2.3-wikilinks-in-cells"
-        },
-        {
-          "text": "04.2.4 — Sheet metadata",
-          "link": "/guides/04.2.4-sheet-metadata"
-        },
-        {
-          "text": "04.3 — The dashboard",
-          "link": "/guides/04.3-the-dashboard"
-        },
-        {
-          "text": "04.4 — Validate and catch drift",
-          "link": "/guides/04.4-validate-and-catch-drift"
-        },
-        {
-          "text": "04.4.1 — Identity checks",
-          "link": "/guides/04.4.1-identity-checks"
-        },
-        {
-          "text": "04.4.2 — Control checks",
-          "link": "/guides/04.4.2-control-checks"
-        },
-        {
-          "text": "04.4.3 — Link checks",
-          "link": "/guides/04.4.3-link-checks"
-        },
-        {
-          "text": "04.4.4 — CI next step",
-          "link": "/guides/04.4.4-ci-next-step"
-        },
-        {
-          "text": "05 — Improve: close the loop",
-          "link": "/guides/05-improve"
-        },
-        {
-          "text": "05.1 — Run an internal audit",
-          "link": "/guides/05.1-run-an-internal-audit"
-        },
-        {
-          "text": "05.2 — Write a finding",
-          "link": "/guides/05.2-write-a-finding"
-        },
-        {
-          "text": "05.3 — CAPA lifecycle",
-          "link": "/guides/05.3-capa-lifecycle"
-        },
-        {
-          "text": "05.3.1 — Raise a CAPA",
-          "link": "/guides/05.3.1-raise-a-capa"
-        },
-        {
-          "text": "05.3.2 — Find the root cause",
-          "link": "/guides/05.3.2-find-the-root-cause"
-        },
-        {
-          "text": "05.3.3 — Implement the action",
-          "link": "/guides/05.3.3-implement-the-action"
-        },
-        {
-          "text": "05.4 — Verification and closure",
-          "link": "/guides/05.4-verification-and-closure"
-        },
-        {
-          "text": "06 — Align: ISO 9001 clause references",
-          "link": "/guides/06-align"
-        },
-        {
-          "text": "06.1 — ISO 9001:2026",
-          "link": "/guides/06.1-iso-9001-2026"
-        },
-        {
-          "text": "06.2 — Legacy 2015 clause notes",
-          "link": "/guides/06.2-legacy-2015-clause-notes"
-        },
-        {
-          "text": "06.3 — Migrate a clause link",
-          "link": "/guides/06.3-migrate-a-clause-link"
-        },
-        {
-          "text": "07 — Govern: who may do what",
-          "link": "/guides/07-govern"
-        },
-        {
-          "text": "07.1 — Roles and people",
-          "link": "/guides/07.1-roles-and-people"
-        },
-        {
-          "text": "07.2 — RACI and obligations",
-          "link": "/guides/07.2-raci-and-obligations"
-        },
-        {
-          "text": "07.3 — Permissions and AI/MCP",
-          "link": "/guides/07.3-permissions-and-ai-mcp"
-        },
-        {
-          "text": "07.3.1 — Choosing a target",
-          "link": "/guides/07.3.1-choosing-a-target"
-        },
-        {
-          "text": "07.3.2 — Vault Safe vs Power User",
-          "link": "/guides/07.3.2-vault-safe-vs-power-user"
-        },
-        {
-          "text": "07.3.3 — AGENTS rules",
-          "link": "/guides/07.3.3-agents-rules"
-        },
-        {
-          "text": "07.3.4 — MCP setup",
-          "link": "/guides/07.3.4-mcp-setup"
-        },
-        {
-          "text": "07.4 — Git as audit trail",
-          "link": "/guides/07.4-git-as-audit-trail"
-        },
         {
           "text": "Working with the QMS vault — start here",
           "link": "/guides/00-start-here"
-        }
-      ]
-    },
-    {
-      "text": "Instructions",
-      "collapsed": true,
-      "items": [
+        },
         {
-          "text": "Label Verification",
-          "link": "/instructions/WI-PROD-003"
+          "text": "01 — Orient: find your way around",
+          "link": "/guides/01-orient",
+          "collapsed": true,
+          "items": [
+            {
+              "text": "01.1 — Anatomy of a note",
+              "link": "/guides/01.1-anatomy-of-a-note"
+            },
+            {
+              "text": "01.2 — Types and taxonomy",
+              "link": "/guides/01.2-types-and-taxonomy"
+            },
+            {
+              "text": "01.3 — Views and navigation",
+              "link": "/guides/01.3-views-and-navigation",
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "01.3.1 — Filter operators",
+                  "link": "/guides/01.3.1-filter-operators"
+                },
+                {
+                  "text": "01.3.2 — Sorting a view",
+                  "link": "/guides/01.3.2-sorting-a-view"
+                },
+                {
+                  "text": "01.3.3 — View file anatomy",
+                  "link": "/guides/01.3.3-view-file-anatomy"
+                }
+              ]
+            },
+            {
+              "text": "01.4 — Wikilinks and backlinks",
+              "link": "/guides/01.4-wikilinks-and-backlinks",
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "01.4.1 — Body links",
+                  "link": "/guides/01.4.1-body-links"
+                },
+                {
+                  "text": "01.4.2 — Relationship fields and inverses",
+                  "link": "/guides/01.4.2-relationship-fields-and-inverses"
+                },
+                {
+                  "text": "01.4.3 — Backlinks and neighborhood",
+                  "link": "/guides/01.4.3-backlinks-and-neighborhood"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "text": "02 — Operate: the daily pathway",
+          "link": "/guides/02-operate",
+          "collapsed": true,
+          "items": [
+            {
+              "text": "02.1 — Capture the condition",
+              "link": "/guides/02.1-capture-the-condition"
+            },
+            {
+              "text": "02.2 — Triage into a finding",
+              "link": "/guides/02.2-triage-into-a-finding",
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "02.2.1 — Assign type and ID",
+                  "link": "/guides/02.2.1-assign-type-and-id"
+                },
+                {
+                  "text": "02.2.2 — Severity, owner, due",
+                  "link": "/guides/02.2.2-severity,-owner,-due"
+                },
+                {
+                  "text": "02.2.3 — Tags and move",
+                  "link": "/guides/02.2.3-tags-and-move"
+                }
+              ]
+            },
+            {
+              "text": "02.3 — Disposition and evidence",
+              "link": "/guides/02.3-disposition-and-evidence"
+            }
+          ]
+        },
+        {
+          "text": "03 — Maintain: controlled documents",
+          "link": "/guides/03-maintain",
+          "collapsed": true,
+          "items": [
+            {
+              "text": "03.1 — Write a policy",
+              "link": "/guides/03.1-write-a-policy"
+            },
+            {
+              "text": "03.2 — Write an SOP",
+              "link": "/guides/03.2-write-an-sop",
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "03.2.1 — Drafting the SOP",
+                  "link": "/guides/03.2.1-drafting-the-sop"
+                },
+                {
+                  "text": "03.2.2 — Reviewing the draft",
+                  "link": "/guides/03.2.2-reviewing-the-draft"
+                },
+                {
+                  "text": "03.2.3 — Approving and activating",
+                  "link": "/guides/03.2.3-approving-and-activating"
+                },
+                {
+                  "text": "03.2.4 — Periodic review",
+                  "link": "/guides/03.2.4-periodic-review"
+                }
+              ]
+            },
+            {
+              "text": "03.3 — Work instructions",
+              "link": "/guides/03.3-work-instructions"
+            },
+            {
+              "text": "03.4 — Revisions and Git",
+              "link": "/guides/03.4-revisions-and-git",
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "03.4.1 — Revision numbering",
+                  "link": "/guides/03.4.1-revision-numbering"
+                },
+                {
+                  "text": "03.4.2 — Commit conventions",
+                  "link": "/guides/03.4.2-commit-conventions"
+                },
+                {
+                  "text": "03.4.3 — Tags and rollback",
+                  "link": "/guides/03.4.3-tags-and-rollback"
+                },
+                {
+                  "text": "03.4.4 — Sheet synchronisation",
+                  "link": "/guides/03.4.4-sheet-synchronisation"
+                }
+              ]
+            },
+            {
+              "text": "03.5 — Templates and AI drafting",
+              "link": "/guides/03.5-templates-and-ai-drafting",
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "03.5.1 — Prompt anatomy",
+                  "link": "/guides/03.5.1-prompt-anatomy"
+                },
+                {
+                  "text": "03.5.2 — Panel or inline",
+                  "link": "/guides/03.5.2-panel-or-inline"
+                },
+                {
+                  "text": "03.5.3 — External MCP",
+                  "link": "/guides/03.5.3-external-mcp"
+                },
+                {
+                  "text": "03.5.4 — Reviewing AI drafts",
+                  "link": "/guides/03.5.4-reviewing-ai-drafts"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "text": "04 — Monitor: the control tower",
+          "link": "/guides/04-monitor",
+          "collapsed": true,
+          "items": [
+            {
+              "text": "04.1 — Build a saved view",
+              "link": "/guides/04.1-build-a-saved-view"
+            },
+            {
+              "text": "04.2 — Register sheets",
+              "link": "/guides/04.2-register-sheets",
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "04.2.1 — CSV body",
+                  "link": "/guides/04.2.1-csv-body"
+                },
+                {
+                  "text": "04.2.2 — Formulas",
+                  "link": "/guides/04.2.2-formulas"
+                },
+                {
+                  "text": "04.2.3 — Wikilinks in cells",
+                  "link": "/guides/04.2.3-wikilinks-in-cells"
+                },
+                {
+                  "text": "04.2.4 — Sheet metadata",
+                  "link": "/guides/04.2.4-sheet-metadata"
+                }
+              ]
+            },
+            {
+              "text": "04.3 — The dashboard",
+              "link": "/guides/04.3-the-dashboard"
+            },
+            {
+              "text": "04.4 — Validate and catch drift",
+              "link": "/guides/04.4-validate-and-catch-drift",
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "04.4.1 — Identity checks",
+                  "link": "/guides/04.4.1-identity-checks"
+                },
+                {
+                  "text": "04.4.2 — Control checks",
+                  "link": "/guides/04.4.2-control-checks"
+                },
+                {
+                  "text": "04.4.3 — Link checks",
+                  "link": "/guides/04.4.3-link-checks"
+                },
+                {
+                  "text": "04.4.4 — CI next step",
+                  "link": "/guides/04.4.4-ci-next-step"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "text": "05 — Improve: close the loop",
+          "link": "/guides/05-improve",
+          "collapsed": true,
+          "items": [
+            {
+              "text": "05.1 — Run an internal audit",
+              "link": "/guides/05.1-run-an-internal-audit"
+            },
+            {
+              "text": "05.2 — Write a finding",
+              "link": "/guides/05.2-write-a-finding"
+            },
+            {
+              "text": "05.3 — CAPA lifecycle",
+              "link": "/guides/05.3-capa-lifecycle",
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "05.3.1 — Raise a CAPA",
+                  "link": "/guides/05.3.1-raise-a-capa"
+                },
+                {
+                  "text": "05.3.2 — Find the root cause",
+                  "link": "/guides/05.3.2-find-the-root-cause"
+                },
+                {
+                  "text": "05.3.3 — Implement the action",
+                  "link": "/guides/05.3.3-implement-the-action"
+                }
+              ]
+            },
+            {
+              "text": "05.4 — Verification and closure",
+              "link": "/guides/05.4-verification-and-closure"
+            }
+          ]
+        },
+        {
+          "text": "06 — Align: ISO 9001 clause references",
+          "link": "/guides/06-align",
+          "collapsed": true,
+          "items": [
+            {
+              "text": "06.1 — ISO 9001:2026",
+              "link": "/guides/06.1-iso-9001-2026"
+            },
+            {
+              "text": "06.2 — Legacy 2015 clause notes",
+              "link": "/guides/06.2-legacy-2015-clause-notes"
+            },
+            {
+              "text": "06.3 — Migrate a clause link",
+              "link": "/guides/06.3-migrate-a-clause-link"
+            }
+          ]
+        },
+        {
+          "text": "07 — Govern: who may do what",
+          "link": "/guides/07-govern",
+          "collapsed": true,
+          "items": [
+            {
+              "text": "07.1 — Roles and people",
+              "link": "/guides/07.1-roles-and-people"
+            },
+            {
+              "text": "07.2 — RACI and obligations",
+              "link": "/guides/07.2-raci-and-obligations"
+            },
+            {
+              "text": "07.3 — Permissions and AI/MCP",
+              "link": "/guides/07.3-permissions-and-ai-mcp",
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "07.3.1 — Choosing a target",
+                  "link": "/guides/07.3.1-choosing-a-target"
+                },
+                {
+                  "text": "07.3.2 — Vault Safe vs Power User",
+                  "link": "/guides/07.3.2-vault-safe-vs-power-user"
+                },
+                {
+                  "text": "07.3.3 — AGENTS rules",
+                  "link": "/guides/07.3.3-agents-rules"
+                },
+                {
+                  "text": "07.3.4 — MCP setup",
+                  "link": "/guides/07.3.4-mcp-setup"
+                }
+              ]
+            },
+            {
+              "text": "07.4 — Git as audit trail",
+              "link": "/guides/07.4-git-as-audit-trail"
+            }
+          ]
         }
       ]
     }

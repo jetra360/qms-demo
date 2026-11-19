@@ -4,6 +4,7 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { buildNoteMap, wikilinkPlugin } from './wikilinks.mjs'
 import { buildExcludes } from './publish-scope.mjs'
+import { mermaidPlugin } from './mermaid.mjs'
 
 const here = path.dirname(fileURLToPath(import.meta.url))
 const vaultRoot = path.resolve(here, '../..')
@@ -12,18 +13,17 @@ const srcExclude = buildExcludes(vaultRoot, fs)
 
 export default defineConfig({
   title: 'Tolaria QMS',
-  description: 'Guides and work instructions from the Tolaria QMS vault',
+  description: 'Guides from the Tolaria QMS vault',
   base: '/qms-demo/',
   srcDir: '..',
-  // Curated site: every vault note still exists, but only guides/ and
-  // instructions/ (plus the homepage) are rendered and searchable.
+  // Curated site: every vault note still exists, but only guides/
+  // (plus the homepage) are rendered and searchable.
   srcExclude,
 
   themeConfig: {
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Guides', link: '/guides/00-start-here' },
-      { text: 'Instructions', link: '/instructions/WI-PROD-003' },
     ],
     sidebar,
     search: { provider: 'local' },
@@ -35,6 +35,7 @@ export default defineConfig({
   markdown: {
     config: (md) => {
       md.use(wikilinkPlugin(buildNoteMap(vaultRoot)))
+      md.use(mermaidPlugin)
     },
   },
 

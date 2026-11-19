@@ -5,22 +5,21 @@ _organized: true
 tags:
   - qms
   - website
-description: "Homepage of the published QMS site — guides and work instructions generated from the vault"
+description: "Homepage of the published QMS site — guides generated from the vault"
 ---
 # Tolaria QMS
 
 A small, working Quality Management System built as a plain folder of Markdown files. This site is generated from that same vault, so a change to any guide becomes a change here after the next commit and build.
 
-> **Analogy:** the vault is the workshop, this site is the training manual. The controlled documents stay in the workshop; only the guides and work instructions are printed here for anyone to read.
+> **Analogy:** the vault is the workshop, this site is the training manual. The controlled documents stay in the workshop; only the guides are printed here for anyone to read.
 
 ## What is on this site
 
-This is a **curated** site. Only two folders are published:
+This is a **curated** site. Only one folder is published:
 
 - **Guides** — [[00-start-here|the 71-page onboarding course]], organised in three levels.
-- **Instructions** — [[WI-PROD-003|work instructions]], the step-by-step checks an operator performs.
 
-Everything else in the vault — policies, SOPs, records, audit findings, CAPAs, registers, ISO clause notes and inbox captures — stays in Tolaria and is **not published here**.
+Everything else in the vault — work instructions, policies, SOPs, records, audit findings, CAPAs, registers, ISO clause notes and inbox captures — stays in Tolaria and is **not published here**.
 
 > A link you follow that ends in "(not published)" is a real vault note. Open Tolaria to read it; it is simply outside the scope of this public site.
 
@@ -30,7 +29,6 @@ Everything else in the vault — policies, SOPs, records, audit findings, CAPAs,
 - [[01-orient|Level 1 — orient: find your way around]]
 - [[02-operate|Level 2 — operate: capture and triage]]
 - [[03-maintain|Level 3 — maintain: documents and revisions]]
-- [[WI-PROD-003|Work instruction: label verification]]
 
 ## What works on this site
 
@@ -38,11 +36,11 @@ Wikilinks between published guides become real links. Search runs entirely in th
 
 ## Helpful to know
 
-- Mermaid diagrams and the fenced HTML dashboard appear as **source code**, not rendered graphics.
-- Spreadsheet notes show their CSV body as plain text rather than a grid.
+- Mermaid diagrams are rendered as diagrams, in both light and dark mode.
+- Spreadsheet notes (not on this site) show their CSV body as plain text rather than a grid.
 - Frontmatter fields such as `status` and `owner` are not shown on the page; the prose still carries the meaning.
 
-These are deliberate: they keep the build dependency-free.
+The Mermaid renderer is the one client-side dependency; everything else stays plain Markdown.
 
 ## How to update the site
 

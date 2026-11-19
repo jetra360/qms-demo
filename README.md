@@ -172,7 +172,7 @@ See `AGENTS.md`. In short: an agent may create `draft` notes and capture Inbox i
 
 ## Publishing the site (curated, configured)
 
-The vault stays complete; the website publishes **only the guides and work instructions**. The kitchen is still the vault; the menu printed from it contains just the training material.
+The vault stays complete; the website publishes **only the guides**. The kitchen is still the vault; the menu printed from it contains just the training material.
 
 ```text
 qms-vault/
@@ -181,9 +181,10 @@ qms-vault/
 ├── site/.vitepress/config.mts       ← base, srcDir '..', nav, derived srcExclude, search, wikilink plugin
 ├── site/.vitepress/publish-scope.mjs ← THE publish allowlist (edit this to change scope)
 ├── site/.vitepress/wikilinks.mjs    ← converts Tolaria links; marks unpublished targets
-├── site/.vitepress/build-sidebar.mjs← generates sidebar.json from the published folders only
+├── site/.vitepress/build-sidebar.mjs← generates a nested, collapsible guides sidebar
+├── site/.vitepress/mermaid.mjs     ← turns ```mermaid fences into renderable containers
 ├── site/.vitepress/sidebar.json    ← generated (do not hand-edit)
-├── site/.vitepress/theme/          ← small custom theme: CSS for "not published" links
+├── site/.vitepress/theme/          ← Nord styling + "not published" + Mermaid renderer
 └── .github/workflows/deploy.yml    ← GitHub Actions → GitHub Pages
 ```
 
@@ -192,12 +193,12 @@ qms-vault/
 `site/.vitepress/publish-scope.mjs` is the single source of truth:
 
 ```js
-PUBLISHED_FOLDERS = ['guides', 'instructions']
+PUBLISHED_FOLDERS = ['guides']
 PUBLISHED_ROOT_FILES = ['index.md']
 ```
 
 - `srcExclude` in `config.mts` is **derived** from that list, so everything else is never rendered or indexed.
-- `build-sidebar.mjs` uses the same module — the sidebar shows only *Guides* and *Instructions*.
+- `build-sidebar.mjs` uses the same module — the sidebar shows only *Guides*, nested as chapters → sections → details.
 - `wikilinks.mjs` uses it too: a link to a real vault note that is not published renders as a dimmed **"(not published)"** marker, never a dead 404. Guides link to about 40 such notes (policies, registers, ISO clauses, records) — those live in Tolaria, not on this site.
 - To change the public scope, edit **only** `PUBLISHED_FOLDERS`. Do not hand-edit `sidebar.json` or the exclusion list.
 
@@ -223,6 +224,6 @@ To go live:
 
 ## What is deliberately not published
 
-`policies/`, `procedures/`, `records/`, `audits/`, `capa/`, `registers/`, `inbox/`, `templates/`, `dashboards/`, `people/`, `roles/`, `iso-9001/` and `types/` remain in the vault and in Git. They are separated from the site by the build exclusion, not by copying files — so there is no second copy to drift out of sync. A future change of mind is a one-line edit to `PUBLISHED_FOLDERS`, followed by `npm run docs:build` and a browser check.
+`instructions/`, `policies/`, `procedures/`, `records/`, `audits/`, `capa/`, `registers/`, `inbox/`, `templates/`, `dashboards/`, `people/`, `roles/`, `iso-9001/` and `types/` remain in the vault and in Git. They are separated from the site by the build exclusion, not by copying files — so there is no second copy to drift out of sync. A future change of mind is a one-line edit to `PUBLISHED_FOLDERS`, followed by `npm run docs:build` and a browser check.
 
 `AGENTS.md` (MCP) is still a design document, not scaffolded.
