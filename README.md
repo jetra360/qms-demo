@@ -170,20 +170,36 @@ The clock for this demo is **2026-11-19**. A few records are deliberately imperf
 
 See `AGENTS.md`. In short: an agent may create `draft` notes and capture Inbox items; **only a human may set `status: active`**.
 
-## Publishing the site (phase 1, configured)
+## Publishing the site (curated, configured)
 
-The whole vault is now publishable as a static website. The kitchen is still the vault; the website is the menu printed from it.
+The vault stays complete; the website publishes **only the guides and work instructions**. The kitchen is still the vault; the menu printed from it contains just the training material.
 
 ```text
 qms-vault/
-├── index.md                       ← site homepage (" / ")
-├── site/package.json              ← vitepress + docs:dev / docs:build
-├── site/.vitepress/config.mts      ← base, srcDir '..', nav, sidebar, search, wikilink plugin
-├── site/.vitepress/wikilinks.mjs   ← converts Tolaria links into real site links
-├── site/.vitepress/build-sidebar.mjs ← generates sidebar.json from folders
-├── site/.vitepress/sidebar.json   ← generated (do not hand-edit)
-└── .github/workflows/deploy.yml   ← GitHub Actions → GitHub Pages
+├── index.md                        ← site homepage (" / ")
+├── site/package.json               ← vitepress + docs:dev / docs:build
+├── site/.vitepress/config.mts       ← base, srcDir '..', nav, derived srcExclude, search, wikilink plugin
+├── site/.vitepress/publish-scope.mjs ← THE publish allowlist (edit this to change scope)
+├── site/.vitepress/wikilinks.mjs    ← converts Tolaria links; marks unpublished targets
+├── site/.vitepress/build-sidebar.mjs← generates sidebar.json from the published folders only
+├── site/.vitepress/sidebar.json    ← generated (do not hand-edit)
+├── site/.vitepress/theme/          ← small custom theme: CSS for "not published" links
+└── .github/workflows/deploy.yml    ← GitHub Actions → GitHub Pages
 ```
+
+### What is published
+
+`site/.vitepress/publish-scope.mjs` is the single source of truth:
+
+```js
+PUBLISHED_FOLDERS = ['guides', 'instructions']
+PUBLISHED_ROOT_FILES = ['index.md']
+```
+
+- `srcExclude` in `config.mts` is **derived** from that list, so everything else is never rendered or indexed.
+- `build-sidebar.mjs` uses the same module — the sidebar shows only *Guides* and *Instructions*.
+- `wikilinks.mjs` uses it too: a link to a real vault note that is not published renders as a dimmed **"(not published)"** marker, never a dead 404. Guides link to about 40 such notes (policies, registers, ISO clauses, records) — those live in Tolaria, not on this site.
+- To change the public scope, edit **only** `PUBLISHED_FOLDERS`. Do not hand-edit `sidebar.json` or the exclusion list.
 
 Local preview and build:
 
@@ -194,19 +210,19 @@ npm run docs:dev     # http://localhost:5173/qms-demo/
 npm run docs:build   # output: site/.vitepress/dist/
 ```
 
-`npm install` has already been run and `package-lock.json` is committed. `dist/` and `node_modules/` are git-ignored — never commit build output.
+`npm install` has already been run and `package-lock.json` is committed. `dist/` and `node_modules/` are git-ignored — never commit build output. `docs:prepare` recreates the root `node_modules` symlink and regenerates the sidebar; never alias Vue in `config.mts`.
 
 To go live:
 
 1. Push this repo to GitHub as **`qms-demo`** — the name must match `base: '/qms-demo/'` in `config.mts`.
 2. In GitHub: **Settings → Pages → Build and deployment → Source → GitHub Actions**.
 3. Push to `main`. The workflow builds and deploys in about two minutes.
-4. Proof: change a frontmatter value in a note → commit → push → refresh the site → the new value appears. That is the whole point of the design.
+4. Proof: change a guide → commit → push → refresh the site → the new value appears. That is the whole point of the design.
 
-**Phase-1 limitations, accepted:** Mermaid diagrams and the fenced HTML dashboard appear as source code; sheet notes show raw CSV. This keeps the first build dependency-free.
+**Accepted limitations:** Mermaid diagrams and the fenced HTML dashboard appear as source code; sheet notes show raw CSV. This keeps the build dependency-free.
 
-## Phase 2: isolate folders later
+## What is deliberately not published
 
-Sensitive folders (`records/`, `capa/`, `audits/`, `inbox/`) are already separated. When you want a site built only from `guides/`, add a publish script that copies `guides/` plus the notes it links to into a generated `published/` folder and point `srcDir` there. Alternatives are VitePress `ignore` patterns or `pages.exclude` for individual drafts. The copy step is auditable — it answers "who decided what went public".
+`policies/`, `procedures/`, `records/`, `audits/`, `capa/`, `registers/`, `inbox/`, `templates/`, `dashboards/`, `people/`, `roles/`, `iso-9001/` and `types/` remain in the vault and in Git. They are separated from the site by the build exclusion, not by copying files — so there is no second copy to drift out of sync. A future change of mind is a one-line edit to `PUBLISHED_FOLDERS`, followed by `npm run docs:build` and a browser check.
 
 `AGENTS.md` (MCP) is still a design document, not scaffolded.

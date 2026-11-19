@@ -3,24 +3,27 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { buildNoteMap, wikilinkPlugin } from './wikilinks.mjs'
+import { buildExcludes } from './publish-scope.mjs'
 
 const here = path.dirname(fileURLToPath(import.meta.url))
 const vaultRoot = path.resolve(here, '../..')
 const sidebar = JSON.parse(fs.readFileSync(path.join(here, 'sidebar.json'), 'utf8'))
+const srcExclude = buildExcludes(vaultRoot, fs)
 
 export default defineConfig({
   title: 'Tolaria QMS',
-  description: 'Quality Management System — the demo vault published as a searchable site',
+  description: 'Guides and work instructions from the Tolaria QMS vault',
   base: '/qms-demo/',
   srcDir: '..',
+  // Curated site: every vault note still exists, but only guides/ and
+  // instructions/ (plus the homepage) are rendered and searchable.
+  srcExclude,
 
   themeConfig: {
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Guides', link: '/guides/00-start-here' },
-      { text: 'Policies', link: '/policies/POL-QUAL-001' },
-      { text: 'Registers', link: '/registers/document-master.sheet' },
-      { text: 'ISO 9001', link: '/iso-9001/iso-9001-map' },
+      { text: 'Instructions', link: '/instructions/WI-PROD-003' },
     ],
     sidebar,
     search: { provider: 'local' },

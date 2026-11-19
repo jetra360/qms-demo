@@ -1,13 +1,16 @@
-// Generates sidebar.json from the vault folder structure.
+// Generates sidebar.json from the published subset of the vault.
 // Run automatically by docs:dev and docs:build, so navigation never goes stale.
+// The scope comes from publish-scope.mjs, the same module the build uses.
 
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { PUBLISHED_FOLDERS, isPublished } from './publish-scope.mjs'
 
 const here = path.dirname(fileURLToPath(import.meta.url))
 const vaultRoot = path.resolve(here, '../..')
-const SKIP = new Set(['site', 'node_modules', '.git', '.vitepress', 'attachments'])
+
+const TITLES = { guides: 'Guides', instructions: 'Instructions' }
 
 function titleOf(file) {
   const text = fs.readFileSync(file, 'utf8')
@@ -19,7 +22,7 @@ const groups = new Map()
 
 function walk(dir) {
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
-    if (entry.name.startsWith('.') || SKIP.has(entry.name)) continue
+    if (entry.name.startsWith('.') || entry.name === 'site' || entry.name === 'node_modules') continue
     const full = path.join(dir, entry.name)
     if (entry.isDirectory()) {
       walk(full)
@@ -28,7 +31,13 @@ function walk(dir) {
     if (!entry.name.endsWith('.md')) continue
 
     const rel = path.relative(vaultRoot, full).split(path.sep).join('/')
-    const folder = path.dirname(rel) === '.' ? 'Top level' : path.dirname(rel)
+    if (!isPublished(rel)) continue
+
+    const slash = rel.indexOf('/')
+    if (slash === -1) continue // homepage is reached from the nav, not the sidebar
+    const folder = rel.slice(0, slash)
+    if (!PUBLISHED_FOLDERS.includes(folder)) continue
+
     const link = '/' + rel.slice(0, -3)
     if (!groups.has(folder)) groups.set(folder, [])
     groups.get(folder).push({ text: titleOf(full), link })
@@ -37,22 +46,14 @@ function walk(dir) {
 
 walk(vaultRoot)
 
-const preferred = ['Top level', 'guides', 'types', 'policies', 'procedures',
-  'instructions', 'records', 'audits', 'capa', 'registers', 'inbox',
-  'templates', 'dashboards', 'people', 'roles', 'iso-9001']
-
-const sidebar = [...groups.entries()]
-  .sort(([a], [b]) => {
-    const ia = preferred.indexOf(a)
-    const ib = preferred.indexOf(b)
-    return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib) || a.localeCompare(b)
-  })
-  .map(([folder, items]) => ({
-    text: folder === 'Top level' ? 'Overview' : folder.split('/').pop(),
+const sidebar = PUBLISHED_FOLDERS
+  .filter((folder) => groups.has(folder))
+  .map((folder) => ({
+    text: TITLES[folder] || folder,
     collapsed: true,
-    items: items.sort((a, b) => a.text.localeCompare(b.text)),
+    items: groups.get(folder).sort((a, b) => a.text.localeCompare(b.text)),
   }))
 
 fs.writeFileSync(path.join(here, 'sidebar.json'), JSON.stringify({ '/': sidebar }, null, 2) + '\n')
-const total = [...groups.values()].reduce((n, items) => n + items.length, 0)
+const total = sidebar.reduce((n, group) => n + group.items.length, 0)
 console.log(`sidebar.json: ${sidebar.length} groups, ${total} pages`)

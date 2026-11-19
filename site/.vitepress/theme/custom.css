@@ -1,0 +1,14 @@
+/* A Vault note that exists but is intentionally not on this curated site.
+   Rendered by wikilinks.mjs as a non-clickable marker, never a dead link. */
+.wikilink-unpublished {
+  color: var(--vp-c-text-3);
+  text-decoration: underline dotted var(--vp-c-divider);
+  text-underline-offset: 3px;
+  cursor: help;
+}
+
+.wikilink-unpublished::after {
+  content: " (not published)";
+  font-size: 0.75em;
+  opacity: 0.7;
+}
