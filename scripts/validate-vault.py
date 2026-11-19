@@ -42,7 +42,9 @@ def frontmatter(text):
 
 
 md_files = []
-for dirpath, _, names in os.walk(ROOT):
+for dirpath, dirnames, names in os.walk(ROOT):
+    # The site build lives inside the vault but is not vault content.
+    dirnames[:] = [d for d in dirnames if not d.startswith(".") and d not in ("site", "node_modules")]
     for name in names:
         if name.endswith(".md"):
             md_files.append(os.path.join(dirpath, name))

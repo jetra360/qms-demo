@@ -169,6 +169,43 @@ The clock for this demo is **2026-11-19**. A few records are deliberately imperf
 
 See `AGENTS.md`. In short: an agent may create `draft` notes and capture Inbox items; **only a human may set `status: active`**.
 
-## Not included in this deliverable (by decision)
+## Publishing the site (phase 1, configured)
 
-The wider design in `../QMS_Tolaria_Site.md` also describes a VitePress website, GitHub Actions, generated public dashboards, a separate `published/` vault and an MCP server. Those are deliberately **not** scaffolded here. This vault is structured so they can be added later without moving files: sensitive material is already separated by folder (`records/`, `capa/`, `audits/`, `inbox/`), which a publish script can simply skip.
+The whole vault is now publishable as a static website. The kitchen is still the vault; the website is the menu printed from it.
+
+```text
+qms-vault/
+├── index.md                       ← site homepage (" / ")
+├── site/package.json              ← vitepress + docs:dev / docs:build
+├── site/.vitepress/config.mts      ← base, srcDir '..', nav, sidebar, search, wikilink plugin
+├── site/.vitepress/wikilinks.mjs   ← converts Tolaria links into real site links
+├── site/.vitepress/build-sidebar.mjs ← generates sidebar.json from folders
+├── site/.vitepress/sidebar.json   ← generated (do not hand-edit)
+└── .github/workflows/deploy.yml   ← GitHub Actions → GitHub Pages
+```
+
+Local preview and build:
+
+```sh
+cd qms-vault/site
+npm install          # once
+npm run docs:dev     # http://localhost:5173/qms-demo/
+npm run docs:build   # output: site/.vitepress/dist/
+```
+
+`npm install` has already been run and `package-lock.json` is committed. `dist/` and `node_modules/` are git-ignored — never commit build output.
+
+To go live:
+
+1. Push this repo to GitHub as **`qms-demo`** — the name must match `base: '/qms-demo/'` in `config.mts`.
+2. In GitHub: **Settings → Pages → Build and deployment → Source → GitHub Actions**.
+3. Push to `main`. The workflow builds and deploys in about two minutes.
+4. Proof: change a frontmatter value in a note → commit → push → refresh the site → the new value appears. That is the whole point of the design.
+
+**Phase-1 limitations, accepted:** Mermaid diagrams and the fenced HTML dashboard appear as source code; sheet notes show raw CSV. This keeps the first build dependency-free.
+
+## Phase 2: isolate folders later
+
+Sensitive folders (`records/`, `capa/`, `audits/`, `inbox/`) are already separated. When you want a site built only from `guides/`, add a publish script that copies `guides/` plus the notes it links to into a generated `published/` folder and point `srcDir` there. Alternatives are VitePress `ignore` patterns or `pages.exclude` for individual drafts. The copy step is auditable — it answers "who decided what went public".
+
+`AGENTS.md` (MCP) is still a design document, not scaffolded.

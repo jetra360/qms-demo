@@ -33,7 +33,7 @@ A small, working Quality Management System built as a plain folder of Markdown f
 
 ## What works on this site
 
-Every `[[wikilink]]` becomes a real link when the site is built. Search runs entirely in the browser — no server. The whole vault is published in this first version.
+Every Tolaria wikilink becomes a real link when the site is built. Search runs entirely in the browser — no server. The whole vault is published in this first version.
 
 ## Known phase-1 limitations
 
