@@ -55,6 +55,7 @@ A reference for the next person or agent who extends this vault. Rule of thumb: 
 - **Console:** `TypeError: Cannot read properties of undefined (reading 'shallowRef')`. Build also warned `Circular chunk: framework -> theme -> framework`.
 - **Cause:** `srcDir` points at the vault, outside `site/`, so bare imports could not be resolved from the notes. Aliasing `vue` to a specific file created **two Vue instances**; the page rendered statically but hydration died.
 - **Fix:** `site/.vitepress/prepare-modules.mjs` creates a `node_modules → site/node_modules` symlink at the vault root, so standard resolution finds a single Vue instance. It runs via `docs:prepare` inside `docs:dev` and `docs:build`.
+- **Later correction:** once the Tolaria vault became a `vault/` subfolder, that symlink sat *inside* the vault and Tolaria indexed 271 npm README files it could not open. The symlink now lives at the repository root instead; `vite.resolve.modules` resolves bare imports and only `vue/server-renderer` is aliased to a file. Never alias `vue` itself.
 - `vite.resolve.modules` did **not** fix the subpath import `vue/server-renderer`; the symlink did.
 
 > Two delivery drivers with different keys to the same door: both arrive, neither can open it. One key, one driver.

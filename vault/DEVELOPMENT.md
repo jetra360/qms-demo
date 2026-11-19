@@ -41,7 +41,7 @@ flowchart LR
 | `site/.vitepress/mermaid.mjs` | Converts mermaid fences into renderable containers |
 | `site/.vitepress/build-sidebar.mjs` | Generates `sidebar.json` from numeric filename prefixes |
 | `site/.vitepress/remote-manifest.json` | Guide stems from the *other* site (in this repo: control pages) |
-| `site/.vitepress/prepare-modules.mjs` | Creates `vault/node_modules` → `site/node_modules` symlink |
+| `site/.vitepress/prepare-modules.mjs` | Creates a repo-root `node_modules` symlink (outside the vault) |
 | `site/.vitepress/theme/` | Nord CSS and Vue components |
 | `.github/workflows/deploy.yml` | Build and deploy to GitHub Pages |
 | `scripts/validate-vault.py` | Document-control validator (doc IDs, revisions, register drift) |
@@ -58,7 +58,7 @@ flowchart LR
 
 ## Build pipeline
 
-1. `npm run docs:prepare` runs `prepare-modules.mjs` (symlink `node_modules → site/node_modules`) and `build-sidebar.mjs`.
+1. `npm run docs:prepare` runs `prepare-modules.mjs` (symlink at the **repository root**, never inside `vault/`) and `build-sidebar.mjs`.
 2. `config.mts` derives `srcExclude` from `publish-scope.mjs`: everything except `guides/` and `index.md` is skipped.
 3. The markdown config installs the wikilink plugin and the Mermaid plugin.
 4. VitePress renders pages into `site/.vitepress/dist/`.

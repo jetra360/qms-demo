@@ -5,7 +5,7 @@ node_modules/
 site/.vitepress/dist/
 site/.vitepress/cache/
 site/node_modules/
-/vault/node_modules
+/node_modules
 *.log
 
 # Control-side content lives in the independent qms-controls repository.
