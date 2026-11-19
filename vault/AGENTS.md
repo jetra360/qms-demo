@@ -17,6 +17,7 @@ This vault is the **guide half** of the QMS demo. Controlled documents live in t
 - The vault root is `qms-vault/vault/`. Website code, scripts and the deploy workflow stay at the repository root, outside the vault, so Tolaria's Inbox stays clean.
 - Links to notes held by `qms-controls` resolve through `site/.vitepress/remote-manifest.json` to absolute URLs. Keep that manifest current when filenames change there.
 - The two repositories are independent: never import code from the other one.
+- The only saved view here is `views/guides.yml` (*Guides & onboarding*), which matches all 71 guides by their `onboarding` tag. Do not copy the document-control views into this vault — they would be empty because those notes live in `qms-controls`.
 
 ## Website rules
 

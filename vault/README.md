@@ -32,9 +32,10 @@ Website code stays outside `vault/`, so Tolaria's Inbox shows only real notes. N
 
 ## Start reading
 
-1. **[[00-start-here]]** — the top-level operating map. Its seven pathways (Orient, Operate, Maintain, Monitor, Improve, Align, Govern) each have one flowchart, an analogy, and links deeper.
-2. Chapter pages such as [[01-orient]] are the main entries; sections like `01.2` and details like `02.2.1` sit underneath.
-3. **Extending the build? Read [[lessons-learned]] and [[DEVELOPMENT]] first.** They cover the field contract, the Vue hydration trap, the two-site split, the build pipeline and the deploy steps.
+1. Open Tolaria's **Views** panel → *Guides & onboarding* (`views/guides.yml`) — one live view listing all 71 guides, sorted by title. It is the only saved view here; the document-control views live in `qms-controls` alongside the documents they filter.
+2. **[[00-start-here]]** — the top-level operating map. Its seven pathways (Orient, Operate, Maintain, Monitor, Improve, Align, Govern) each have one flowchart, an analogy, and links deeper.
+3. Chapter pages such as [[01-orient]] are the main entries; sections like `01.2` and details like `02.2.1` sit underneath.
+4. **Extending the build? Read [[lessons-learned]] and [[DEVELOPMENT]] first.** They cover the field contract, the Vue hydration trap, the two-site split, the build pipeline and the deploy steps.
 
 ## The other half
 
