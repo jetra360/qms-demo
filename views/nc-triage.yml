@@ -1,9 +1,0 @@
-name: Inbox triage queue
-icon: null
-color: null
-sort: property:captured_on:asc
-filters:
-  all:
-  - field: tags
-    op: contains
-    value: untriaged

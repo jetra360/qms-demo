@@ -6,11 +6,12 @@ Exit code 1 means at least one error. Warnings do not fail the check.
 Uses only the Python standard library.
 """
 import csv
+import json
 import os
 import re
 import sys
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ROOT = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "vault")
 CONTROLLED = {"Policy", "SOP", "WorkInstruction"}
 
 errors = []
@@ -111,12 +112,18 @@ if os.path.exists(sheet_path):
     except StopIteration:
         errors.append("document-master.sheet: header 'DOC ID,...' not found")
 
-# All wikilinks must resolve to a filename stem or an H1 title.
+# Wikilinks must resolve locally, by H1 title, or through the other site's
+# manifest (cross-site links are absolute URLs, not broken links).
+remote_path = os.path.join(ROOT, "..", "site", ".vitepress", "remote-manifest.json")
+remote = set()
+if os.path.exists(remote_path):
+    remote = set(json.load(open(remote_path, encoding="utf-8")).keys())
+
 for path in md_files:
     text = read(path)
     for raw in re.findall(r"\[\[([^\]]+)\]\]", text):
         target = raw.split("|")[0].strip()
-        if target not in stems and target not in titles:
+        if target not in stems and target not in titles and target not in remote:
             errors.append(f"{os.path.relpath(path, ROOT)}: broken wikilink [[{target}]]")
 
 print(f"Checked {len(md_files)} notes, {len(doc_ids)} doc_ids, {len(sheet_rows)} sheet rows")

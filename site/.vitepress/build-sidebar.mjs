@@ -9,7 +9,7 @@ import { fileURLToPath } from 'node:url'
 import { PUBLISHED_FOLDERS, isPublished } from './publish-scope.mjs'
 
 const here = path.dirname(fileURLToPath(import.meta.url))
-const vaultRoot = path.resolve(here, '../..')
+const vaultRoot = path.resolve(here, '../../vault')
 
 const TITLES = { guides: 'Guides' }
 

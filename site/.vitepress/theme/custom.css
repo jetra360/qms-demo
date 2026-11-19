@@ -334,6 +334,13 @@ html.hide-sidebar .VPSidebar {
   opacity: 0.7;
 }
 
+/* Cross-site link: opens the companion site in a new tab. */
+.wikilink-remote::after {
+  content: " ↗";
+  color: var(--vp-c-brand-1);
+  font-size: 0.8em;
+}
+
 /* ---- Chapter landing banner (doc-before on chapter pages) ---- */
 .chapter-banner {
   margin: 0 0 2rem;

@@ -7,7 +7,7 @@ import { buildExcludes } from './publish-scope.mjs'
 import { mermaidPlugin } from './mermaid.mjs'
 
 const here = path.dirname(fileURLToPath(import.meta.url))
-const vaultRoot = path.resolve(here, '../..')
+const vaultRoot = path.resolve(here, '../../vault')
 const sidebar = JSON.parse(fs.readFileSync(path.join(here, 'sidebar.json'), 'utf8'))
 const srcExclude = buildExcludes(vaultRoot, fs)
 
@@ -15,7 +15,7 @@ export default defineConfig({
   title: 'QMS_demo',
   description: 'Guides from the QMS_demo vault',
   base: '/qms-demo/',
-  srcDir: '..',
+  srcDir: '../vault',
   // Apply the saved sidebar preference before paint, so returning readers do
   // not see the navigation flash before it is hidden.
   head: [

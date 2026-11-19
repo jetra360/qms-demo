@@ -5,6 +5,9 @@
 export const PUBLISHED_FOLDERS = ['guides']
 export const PUBLISHED_ROOT_FILES = ['index.md']
 
+// The companion site. Links to its notes become absolute URLs, not dead ends.
+export const REMOTE_BASE = 'https://jetra360.github.io/qms-controls'
+
 /**
  * Given a path relative to the vault root (using either separator), is it
  * part of the published site?

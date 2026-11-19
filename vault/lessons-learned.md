@@ -121,7 +121,7 @@ The whole-vault site was replaced by a curated site containing only `guides/` (p
 
 - GitHub rejects account passwords for Git operations. Use a personal access token **as** the password, or SSH keys.
 - This vault uses SSH: the existing local `~/.ssh/id_ed25519.pub` was registered on the GitHub account and `origin` points at the SSH URL. Pushes need no password.
-- The Git repository root must be the **vault folder**, so Tolaria's Git features see it.
+- The Git repository root is the parent of `vault/`. Tolaria opens `vault/`; website code stays outside it so Inbox stays clean. `srcDir` is `../vault` and validators resolve `ROOT = <repo>/vault`. Git still works because git searches parent directories for `.git`.
 - Proof loop: edit a note → commit → push → GitHub Actions → refresh → change is live.
 
 ## 6. Human-only gates
