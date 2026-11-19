@@ -1,0 +1,55 @@
+# Agent guidance — QMS demo vault
+
+This vault is a controlled document system. Files are the source of truth; edit them directly.
+
+## Taxonomy first
+
+Read the `types/` folder before creating anything. Valid type values are the H1 headings of notes with `type: Type`:
+
+`Policy`, `SOP`, `WorkInstruction`, `Record`, `AuditFinding`, `CAPA`, `Register`, `Person`, `Role`, `Note`
+
+Never invent a type. If nothing fits, drop an untyped note into `inbox/` instead.
+
+## Field contract
+
+Use only the canonical fields in `README.md`: `type`, `status`, `tags`, `doc_id`, `revision`, `effective`, `review_due`, `due`, `owner`, `approver`, `severity`, `captured_on`, `performed_on`, `verified_by`, `closed_on`, `implements`, `related_to`, `_organized`. Do not use the aliases (`id`, `effective_date`, `standard`) or the retired fields (`standard_ref`, `process_area`, `supersedes`, `source`, `related_sop`, `related_policy`, `related_finding`, `related_capa`, `has`). Put narrative detail in the body instead.
+
+Type values are Title Case. Status values are lower case: `active`, `draft`, `under_review`, `open`, `closed`, `obsolete`, `template`.
+
+## File naming
+
+- Content notes: filename = `doc_id` (e.g. `SOP-QA-001.md`). The H1 is the human-readable title and is deliberately different.
+- Spreadsheet notes: `NAME.sheet.md` with `_display: sheet` and a CSV-like body.
+- Saved views: `views/NAME.yml`.
+- Person / Role notes: lowercase kebab-case filenames (`jane-doe.md`, `qa-manager.md`) so wikilinks resolve by filename.
+
+## Identity and versioning
+
+- `doc_id` is permanent identity: never reuse, renumber or rename an ID. Allocate a new ID by taking the next free number in `registers/document-master.sheet.md`.
+- A new edition of a document keeps the same file and increments `revision`; it does **not** get a new `doc_id`. Set `effective` to the approval date and append a line to the body's *Revision history*.
+- The master sheet is an index only. Keep its REVISION column in sync with the file; `python3 scripts/validate-vault.py` checks this and fails on drift.
+
+## Linking
+
+Use wikilinks (double-square-bracket links) in both the body and frontmatter. Use **one** relationship field, `related_to`, for every link except the policy link, which keeps the label `implements`. `related_to` is a Tolaria default and gets automatic inverse backlinks; do not reintroduce per-type relationship names.
+
+Never write a bare ISO clause reference such as `ISO 9001:2015 §8.7` — always make it a wikilink to the matching note in `iso-9001/`, keeping the visible text as the alias, e.g. `[[iso2015-8-7-Control-of-nonconforming-outputs|ISO 9001:2015 §8.7]]`. Use the 2015 targets for existing citations; 2026 targets only for confirmed top-level clauses. Do not reproduce normative standard text.
+
+## Nonconformance capture (SOP-QA-002 step 2)
+
+- Capture into `inbox/NC-YYYY-MM-DD-NNN.md` with `captured_on` and `tags: [nonconformance, untriaged]`; reporter, product, batch and containment go in the body. **No `type`, no `_organized`.**
+- Triage sets `type: AuditFinding`, `doc_id: NC-…`, `severity`, `owner`, `due`, `status: open`, `_organized: true`, swaps the `untriaged` tag for `triaged`, adds the `operator` tag, and moves the note to `audits/`.
+- Use the `audit` tag only for findings raised by an auditor; operator reports get the `operator` tag.
+
+## Safety rules
+
+1. An agent may **capture** into `inbox/` (no type, no `_organized` flag).
+2. An agent may create or edit notes with `status: draft` or `status: under_review`.
+3. **Only a human may set `status: active`.** Never promote a document yourself.
+4. Never edit `closed_on` or `verified_by` on a CAPA — closure is a human attestation.
+5. Prefix commits that contain agent-written files with `chore(ai):` so they can be filtered with `git log --grep="chore(ai)"`.
+6. Agent-written notes stay `status: draft` until a human promotes them; the `chore(ai):` commit prefix is the provenance marker now that there is no separate `author` field.
+
+## Spreadsheet edits
+
+Preserve `---` frontmatter, `_display: sheet` and the `_sheet` block. Edit only the CSV body. Quote cells containing commas, quotes or line breaks. Never convert a formula (`=...`) into its calculated value.

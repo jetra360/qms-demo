@@ -1,0 +1,12 @@
+name: Templates
+icon: null
+color: null
+sort: property:type:asc
+filters:
+  any:
+  - field: status
+    op: equals
+    value: template
+  - field: type
+    op: equals
+    value: Type

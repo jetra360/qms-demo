@@ -1,0 +1,704 @@
+{
+  "/": [
+    {
+      "text": "Overview",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Agent guidance — QMS demo vault",
+          "link": "/AGENTS"
+        },
+        {
+          "text": "QMS demo vault — start here",
+          "link": "/README"
+        },
+        {
+          "text": "Tolaria QMS",
+          "link": "/index"
+        }
+      ]
+    },
+    {
+      "text": "guides",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "01 — Orient: find your way around",
+          "link": "/guides/01-orient"
+        },
+        {
+          "text": "01.1 — Anatomy of a note",
+          "link": "/guides/01.1-anatomy-of-a-note"
+        },
+        {
+          "text": "01.2 — Types and taxonomy",
+          "link": "/guides/01.2-types-and-taxonomy"
+        },
+        {
+          "text": "01.3 — Views and navigation",
+          "link": "/guides/01.3-views-and-navigation"
+        },
+        {
+          "text": "01.3.1 — Filter operators",
+          "link": "/guides/01.3.1-filter-operators"
+        },
+        {
+          "text": "01.3.2 — Sorting a view",
+          "link": "/guides/01.3.2-sorting-a-view"
+        },
+        {
+          "text": "01.3.3 — View file anatomy",
+          "link": "/guides/01.3.3-view-file-anatomy"
+        },
+        {
+          "text": "01.4 — Wikilinks and backlinks",
+          "link": "/guides/01.4-wikilinks-and-backlinks"
+        },
+        {
+          "text": "01.4.1 — Body links",
+          "link": "/guides/01.4.1-body-links"
+        },
+        {
+          "text": "01.4.2 — Relationship fields and inverses",
+          "link": "/guides/01.4.2-relationship-fields-and-inverses"
+        },
+        {
+          "text": "01.4.3 — Backlinks and neighborhood",
+          "link": "/guides/01.4.3-backlinks-and-neighborhood"
+        },
+        {
+          "text": "02 — Operate: the daily pathway",
+          "link": "/guides/02-operate"
+        },
+        {
+          "text": "02.1 — Capture the condition",
+          "link": "/guides/02.1-capture-the-condition"
+        },
+        {
+          "text": "02.2 — Triage into a finding",
+          "link": "/guides/02.2-triage-into-a-finding"
+        },
+        {
+          "text": "02.2.1 — Assign type and ID",
+          "link": "/guides/02.2.1-assign-type-and-id"
+        },
+        {
+          "text": "02.2.2 — Severity, owner, due",
+          "link": "/guides/02.2.2-severity,-owner,-due"
+        },
+        {
+          "text": "02.2.3 — Tags and move",
+          "link": "/guides/02.2.3-tags-and-move"
+        },
+        {
+          "text": "02.3 — Disposition and evidence",
+          "link": "/guides/02.3-disposition-and-evidence"
+        },
+        {
+          "text": "03 — Maintain: controlled documents",
+          "link": "/guides/03-maintain"
+        },
+        {
+          "text": "03.1 — Write a policy",
+          "link": "/guides/03.1-write-a-policy"
+        },
+        {
+          "text": "03.2 — Write an SOP",
+          "link": "/guides/03.2-write-an-sop"
+        },
+        {
+          "text": "03.2.1 — Drafting the SOP",
+          "link": "/guides/03.2.1-drafting-the-sop"
+        },
+        {
+          "text": "03.2.2 — Reviewing the draft",
+          "link": "/guides/03.2.2-reviewing-the-draft"
+        },
+        {
+          "text": "03.2.3 — Approving and activating",
+          "link": "/guides/03.2.3-approving-and-activating"
+        },
+        {
+          "text": "03.2.4 — Periodic review",
+          "link": "/guides/03.2.4-periodic-review"
+        },
+        {
+          "text": "03.3 — Work instructions",
+          "link": "/guides/03.3-work-instructions"
+        },
+        {
+          "text": "03.4 — Revisions and Git",
+          "link": "/guides/03.4-revisions-and-git"
+        },
+        {
+          "text": "03.4.1 — Revision numbering",
+          "link": "/guides/03.4.1-revision-numbering"
+        },
+        {
+          "text": "03.4.2 — Commit conventions",
+          "link": "/guides/03.4.2-commit-conventions"
+        },
+        {
+          "text": "03.4.3 — Tags and rollback",
+          "link": "/guides/03.4.3-tags-and-rollback"
+        },
+        {
+          "text": "03.4.4 — Sheet synchronisation",
+          "link": "/guides/03.4.4-sheet-synchronisation"
+        },
+        {
+          "text": "03.5 — Templates and AI drafting",
+          "link": "/guides/03.5-templates-and-ai-drafting"
+        },
+        {
+          "text": "03.5.1 — Prompt anatomy",
+          "link": "/guides/03.5.1-prompt-anatomy"
+        },
+        {
+          "text": "03.5.2 — Panel or inline",
+          "link": "/guides/03.5.2-panel-or-inline"
+        },
+        {
+          "text": "03.5.3 — External MCP",
+          "link": "/guides/03.5.3-external-mcp"
+        },
+        {
+          "text": "03.5.4 — Reviewing AI drafts",
+          "link": "/guides/03.5.4-reviewing-ai-drafts"
+        },
+        {
+          "text": "04 — Monitor: the control tower",
+          "link": "/guides/04-monitor"
+        },
+        {
+          "text": "04.1 — Build a saved view",
+          "link": "/guides/04.1-build-a-saved-view"
+        },
+        {
+          "text": "04.2 — Register sheets",
+          "link": "/guides/04.2-register-sheets"
+        },
+        {
+          "text": "04.2.1 — CSV body",
+          "link": "/guides/04.2.1-csv-body"
+        },
+        {
+          "text": "04.2.2 — Formulas",
+          "link": "/guides/04.2.2-formulas"
+        },
+        {
+          "text": "04.2.3 — Wikilinks in cells",
+          "link": "/guides/04.2.3-wikilinks-in-cells"
+        },
+        {
+          "text": "04.2.4 — Sheet metadata",
+          "link": "/guides/04.2.4-sheet-metadata"
+        },
+        {
+          "text": "04.3 — The dashboard",
+          "link": "/guides/04.3-the-dashboard"
+        },
+        {
+          "text": "04.4 — Validate and catch drift",
+          "link": "/guides/04.4-validate-and-catch-drift"
+        },
+        {
+          "text": "04.4.1 — Identity checks",
+          "link": "/guides/04.4.1-identity-checks"
+        },
+        {
+          "text": "04.4.2 — Control checks",
+          "link": "/guides/04.4.2-control-checks"
+        },
+        {
+          "text": "04.4.3 — Link checks",
+          "link": "/guides/04.4.3-link-checks"
+        },
+        {
+          "text": "04.4.4 — CI next step",
+          "link": "/guides/04.4.4-ci-next-step"
+        },
+        {
+          "text": "05 — Improve: close the loop",
+          "link": "/guides/05-improve"
+        },
+        {
+          "text": "05.1 — Run an internal audit",
+          "link": "/guides/05.1-run-an-internal-audit"
+        },
+        {
+          "text": "05.2 — Write a finding",
+          "link": "/guides/05.2-write-a-finding"
+        },
+        {
+          "text": "05.3 — CAPA lifecycle",
+          "link": "/guides/05.3-capa-lifecycle"
+        },
+        {
+          "text": "05.3.1 — Raise a CAPA",
+          "link": "/guides/05.3.1-raise-a-capa"
+        },
+        {
+          "text": "05.3.2 — Find the root cause",
+          "link": "/guides/05.3.2-find-the-root-cause"
+        },
+        {
+          "text": "05.3.3 — Implement the action",
+          "link": "/guides/05.3.3-implement-the-action"
+        },
+        {
+          "text": "05.4 — Verification and closure",
+          "link": "/guides/05.4-verification-and-closure"
+        },
+        {
+          "text": "06 — Align: ISO 9001 clause references",
+          "link": "/guides/06-align"
+        },
+        {
+          "text": "06.1 — ISO 9001:2026",
+          "link": "/guides/06.1-iso-9001-2026"
+        },
+        {
+          "text": "06.2 — Legacy 2015 clause notes",
+          "link": "/guides/06.2-legacy-2015-clause-notes"
+        },
+        {
+          "text": "06.3 — Migrate a clause link",
+          "link": "/guides/06.3-migrate-a-clause-link"
+        },
+        {
+          "text": "07 — Govern: who may do what",
+          "link": "/guides/07-govern"
+        },
+        {
+          "text": "07.1 — Roles and people",
+          "link": "/guides/07.1-roles-and-people"
+        },
+        {
+          "text": "07.2 — RACI and obligations",
+          "link": "/guides/07.2-raci-and-obligations"
+        },
+        {
+          "text": "07.3 — Permissions and AI/MCP",
+          "link": "/guides/07.3-permissions-and-ai-mcp"
+        },
+        {
+          "text": "07.3.1 — Choosing a target",
+          "link": "/guides/07.3.1-choosing-a-target"
+        },
+        {
+          "text": "07.3.2 — Vault Safe vs Power User",
+          "link": "/guides/07.3.2-vault-safe-vs-power-user"
+        },
+        {
+          "text": "07.3.3 — AGENTS rules",
+          "link": "/guides/07.3.3-agents-rules"
+        },
+        {
+          "text": "07.3.4 — MCP setup",
+          "link": "/guides/07.3.4-mcp-setup"
+        },
+        {
+          "text": "07.4 — Git as audit trail",
+          "link": "/guides/07.4-git-as-audit-trail"
+        },
+        {
+          "text": "Working with the QMS vault — start here",
+          "link": "/guides/00-start-here"
+        }
+      ]
+    },
+    {
+      "text": "types",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "AuditFinding",
+          "link": "/types/AuditFinding"
+        },
+        {
+          "text": "CAPA",
+          "link": "/types/CAPA"
+        },
+        {
+          "text": "Note",
+          "link": "/types/Note"
+        },
+        {
+          "text": "Person",
+          "link": "/types/Person"
+        },
+        {
+          "text": "Policy",
+          "link": "/types/Policy"
+        },
+        {
+          "text": "Record",
+          "link": "/types/Record"
+        },
+        {
+          "text": "Register",
+          "link": "/types/Register"
+        },
+        {
+          "text": "Role",
+          "link": "/types/Role"
+        },
+        {
+          "text": "SOP",
+          "link": "/types/SOP"
+        },
+        {
+          "text": "WorkInstruction",
+          "link": "/types/WorkInstruction"
+        }
+      ]
+    },
+    {
+      "text": "policies",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Data Integrity Policy",
+          "link": "/policies/POL-QUAL-002"
+        },
+        {
+          "text": "Quality Policy",
+          "link": "/policies/POL-QUAL-001"
+        }
+      ]
+    },
+    {
+      "text": "procedures",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Batch Release",
+          "link": "/procedures/SOP-PROD-001"
+        },
+        {
+          "text": "Incoming Goods Inspection",
+          "link": "/procedures/SOP-QA-001"
+        },
+        {
+          "text": "Nonconformance Handling",
+          "link": "/procedures/SOP-QA-002"
+        }
+      ]
+    },
+    {
+      "text": "instructions",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Label Verification",
+          "link": "/instructions/WI-PROD-003"
+        }
+      ]
+    },
+    {
+      "text": "records",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Disposition record — NC-2026-11-19-001",
+          "link": "/records/REC-NC-2026-11-19-001"
+        },
+        {
+          "text": "Inspection record — lot B-2611-17",
+          "link": "/records/INSP-REC-2026-011"
+        },
+        {
+          "text": "Training record — incoming inspection",
+          "link": "/records/TRAIN-REC-2026-07"
+        }
+      ]
+    },
+    {
+      "text": "audits",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Internal audit finding — document review controls",
+          "link": "/audits/AUDIT-2026-Q1"
+        },
+        {
+          "text": "NC-2026-11-19-001 — Damaged seals on incoming material",
+          "link": "/audits/NC-2026-11-19-001"
+        }
+      ]
+    },
+    {
+      "text": "capa",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "CAPA-2026-001 — Overdue review process",
+          "link": "/capa/CAPA-2026-001"
+        },
+        {
+          "text": "CAPA-2026-002 — Supplier defect investigation",
+          "link": "/capa/CAPA-2026-002"
+        }
+      ]
+    },
+    {
+      "text": "registers",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "document-master.sheet",
+          "link": "/registers/document-master.sheet"
+        },
+        {
+          "text": "raci-obligations.sheet",
+          "link": "/registers/raci-obligations.sheet"
+        },
+        {
+          "text": "risk-register.sheet",
+          "link": "/registers/risk-register.sheet"
+        }
+      ]
+    },
+    {
+      "text": "inbox",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "NC-2026-11-19-002 — Connector housing dimension out of tolerance",
+          "link": "/inbox/NC-2026-11-19-002"
+        },
+        {
+          "text": "Near miss: unsecured pallet in goods-in bay",
+          "link": "/inbox/NEAR-MISS-2026-004"
+        },
+        {
+          "text": "Supplier issue: certificate of conformance missing",
+          "link": "/inbox/SUPPLIER-ISSUE-2026-003"
+        }
+      ]
+    },
+    {
+      "text": "templates",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "AI prompt — draft a controlled SOP",
+          "link": "/templates/ai-sop-draft-prompt"
+        },
+        {
+          "text": "CAPA template",
+          "link": "/templates/capa-template"
+        },
+        {
+          "text": "Nonconformance report — capture form",
+          "link": "/templates/nonconformance-report"
+        },
+        {
+          "text": "SOP template",
+          "link": "/templates/sop-template"
+        }
+      ]
+    },
+    {
+      "text": "dashboards",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Nonconformance lifecycle",
+          "link": "/dashboards/nc-lifecycle"
+        },
+        {
+          "text": "QMS overview dashboard",
+          "link": "/dashboards/qms-overview"
+        },
+        {
+          "text": "SOP lifecycle — template to controlled document",
+          "link": "/dashboards/sop-lifecycle"
+        }
+      ]
+    },
+    {
+      "text": "people",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Jane Doe",
+          "link": "/people/jane-doe"
+        }
+      ]
+    },
+    {
+      "text": "roles",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Production Manager",
+          "link": "/roles/prod-manager"
+        },
+        {
+          "text": "QA Director",
+          "link": "/roles/qa-director"
+        },
+        {
+          "text": "QA Engineer",
+          "link": "/roles/qa-engineer"
+        },
+        {
+          "text": "QA Manager",
+          "link": "/roles/qa-manager"
+        }
+      ]
+    },
+    {
+      "text": "iso-9001",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "ISO 9001 clause map",
+          "link": "/iso-9001/iso-9001-map"
+        }
+      ]
+    },
+    {
+      "text": "2015",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "§1 Scope — ISO 9001:2015",
+          "link": "/iso-9001/2015/iso2015-1-Scope"
+        },
+        {
+          "text": "§10 Improvement — ISO 9001:2015",
+          "link": "/iso-9001/2015/iso2015-10-Improvement"
+        },
+        {
+          "text": "§10.2 Nonconformity and corrective action — ISO 9001:2015",
+          "link": "/iso-9001/2015/iso2015-10-2-Nonconformity-and-corrective-action"
+        },
+        {
+          "text": "§2 Normative references — ISO 9001:2015",
+          "link": "/iso-9001/2015/iso2015-2-Normative-references"
+        },
+        {
+          "text": "§3 Terms and definitions — ISO 9001:2015",
+          "link": "/iso-9001/2015/iso2015-3-Terms-and-definitions"
+        },
+        {
+          "text": "§4 Context of the organization — ISO 9001:2015",
+          "link": "/iso-9001/2015/iso2015-4-Context-of-the-organization"
+        },
+        {
+          "text": "§5 Leadership — ISO 9001:2015",
+          "link": "/iso-9001/2015/iso2015-5-Leadership"
+        },
+        {
+          "text": "§5.1.2 Customer focus — ISO 9001:2015",
+          "link": "/iso-9001/2015/iso2015-5-1-2-Customer-focus"
+        },
+        {
+          "text": "§5.3 Organizational roles, responsibilities and authorities — ISO 9001:2015",
+          "link": "/iso-9001/2015/iso2015-5-3-Organizational-roles-responsibilities-authorities"
+        },
+        {
+          "text": "§6 Planning — ISO 9001:2015",
+          "link": "/iso-9001/2015/iso2015-6-Planning"
+        },
+        {
+          "text": "§6.1 Actions to address risks and opportunities — ISO 9001:2015",
+          "link": "/iso-9001/2015/iso2015-6-1-Actions-to-address-risks-and-opportunities"
+        },
+        {
+          "text": "§7 Support — ISO 9001:2015",
+          "link": "/iso-9001/2015/iso2015-7-Support"
+        },
+        {
+          "text": "§7.2 Competence — ISO 9001:2015",
+          "link": "/iso-9001/2015/iso2015-7-2-Competence"
+        },
+        {
+          "text": "§7.5 Documented information — ISO 9001:2015",
+          "link": "/iso-9001/2015/iso2015-7-5-Documented-information"
+        },
+        {
+          "text": "§7.5.2 Creating and updating — ISO 9001:2015",
+          "link": "/iso-9001/2015/iso2015-7-5-2-Creating-and-updating"
+        },
+        {
+          "text": "§7.5.3 Control of documented information — ISO 9001:2015",
+          "link": "/iso-9001/2015/iso2015-7-5-3-Control-of-documented-information"
+        },
+        {
+          "text": "§8 Operation — ISO 9001:2015",
+          "link": "/iso-9001/2015/iso2015-8-Operation"
+        },
+        {
+          "text": "§8.5.1 Control of production and provision of service — ISO 9001:2015",
+          "link": "/iso-9001/2015/iso2015-8-5-1-Control-of-production-and-provision-of-service"
+        },
+        {
+          "text": "§8.6 Release of products and services — ISO 9001:2015",
+          "link": "/iso-9001/2015/iso2015-8-6-Release-of-products-and-services"
+        },
+        {
+          "text": "§8.7 Control of nonconforming outputs — ISO 9001:2015",
+          "link": "/iso-9001/2015/iso2015-8-7-Control-of-nonconforming-outputs"
+        },
+        {
+          "text": "§9 Performance evaluation — ISO 9001:2015",
+          "link": "/iso-9001/2015/iso2015-9-Performance-evaluation"
+        },
+        {
+          "text": "§9.2 Internal audit — ISO 9001:2015",
+          "link": "/iso-9001/2015/iso2015-9-2-Internal-audit"
+        }
+      ]
+    },
+    {
+      "text": "2026",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "§1 Scope — ISO 9001:2026",
+          "link": "/iso-9001/2026/iso2026-1-Scope"
+        },
+        {
+          "text": "§10 Improvement — ISO 9001:2026",
+          "link": "/iso-9001/2026/iso2026-10-Improvement"
+        },
+        {
+          "text": "§2 Normative references — ISO 9001:2026",
+          "link": "/iso-9001/2026/iso2026-2-Normative-references"
+        },
+        {
+          "text": "§3 Terms and definitions — ISO 9001:2026",
+          "link": "/iso-9001/2026/iso2026-3-Terms-and-definitions"
+        },
+        {
+          "text": "§4 Context of the organization — ISO 9001:2026",
+          "link": "/iso-9001/2026/iso2026-4-Context-of-the-organization"
+        },
+        {
+          "text": "§5 Leadership — ISO 9001:2026",
+          "link": "/iso-9001/2026/iso2026-5-Leadership"
+        },
+        {
+          "text": "§6 Planning — ISO 9001:2026",
+          "link": "/iso-9001/2026/iso2026-6-Planning"
+        },
+        {
+          "text": "§7 Support — ISO 9001:2026",
+          "link": "/iso-9001/2026/iso2026-7-Support"
+        },
+        {
+          "text": "§8 Operation — ISO 9001:2026",
+          "link": "/iso-9001/2026/iso2026-8-Operation"
+        },
+        {
+          "text": "§9 Performance evaluation — ISO 9001:2026",
+          "link": "/iso-9001/2026/iso2026-9-Performance-evaluation"
+        }
+      ]
+    }
+  ]
+}

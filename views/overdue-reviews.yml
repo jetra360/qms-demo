@@ -1,0 +1,12 @@
+name: Overdue / under review
+icon: null
+color: null
+sort: property:review_due:asc
+filters:
+  all:
+  - field: type
+    op: equals
+    value: SOP
+  - field: status
+    op: equals
+    value: under_review

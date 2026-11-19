@@ -1,0 +1,15 @@
+{
+  "name": "qms-demo-site",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "docs:sidebar": "node .vitepress/build-sidebar.mjs",
+    "docs:dev": "npm run docs:sidebar && vitepress dev .",
+    "docs:build": "npm run docs:sidebar && vitepress build .",
+    "docs:preview": "vitepress preview ."
+  },
+  "devDependencies": {
+    "vitepress": "^1.6.4"
+  }
+}

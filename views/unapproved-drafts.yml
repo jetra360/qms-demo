@@ -1,0 +1,12 @@
+name: Unapproved drafts
+icon: null
+color: null
+sort: property:doc_id:asc
+filters:
+  all:
+  - field: type
+    op: equals
+    value: SOP
+  - field: status
+    op: equals
+    value: draft

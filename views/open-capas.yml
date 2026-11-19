@@ -1,0 +1,12 @@
+name: Open CAPAs
+icon: null
+color: null
+sort: property:due:asc
+filters:
+  all:
+  - field: type
+    op: equals
+    value: CAPA
+  - field: status
+    op: equals
+    value: open

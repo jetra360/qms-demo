@@ -1,0 +1,24 @@
+name: All quality documents
+icon: null
+color: null
+sort: property:doc_id:asc
+filters:
+  any:
+  - field: type
+    op: equals
+    value: Policy
+  - field: type
+    op: equals
+    value: SOP
+  - field: type
+    op: equals
+    value: WorkInstruction
+  - field: type
+    op: equals
+    value: Record
+  - field: type
+    op: equals
+    value: AuditFinding
+  - field: type
+    op: equals
+    value: CAPA

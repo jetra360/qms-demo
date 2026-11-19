@@ -1,0 +1,9 @@
+name: All nonconformances
+icon: null
+color: null
+sort: property:doc_id:asc
+filters:
+  all:
+  - field: type
+    op: equals
+    value: AuditFinding

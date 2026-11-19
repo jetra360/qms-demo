@@ -1,0 +1,15 @@
+name: Controlled documents
+icon: null
+color: null
+sort: property:doc_id:asc
+filters:
+  any:
+  - field: type
+    op: equals
+    value: Policy
+  - field: type
+    op: equals
+    value: SOP
+  - field: type
+    op: equals
+    value: WorkInstruction
