@@ -95,6 +95,17 @@ The whole-vault site was replaced by a curated site containing only `guides/` (p
 - **VitePress collapses literal newlines in raw HTML.** The first attempt put the Mermaid source as text inside the div; Mermaid received one long line and failed with `Expecting 'NEWLINE', got 'NODE_STRING'`. The fix is to base64-encode the source into `data-source` and decode it in the browser with `TextDecoder`. Do not remove that attribute.
 - Mermaid is now a real `npm` dependency; `package-lock.json` is committed so CI installs the same version. It is the only client-side dependency added for rendering.
 
+### 4.7 Reader helpers — chapter banner, chapter nav, outline controls, memory
+
+- **Use theme slots, not note edits.** `theme/index.js` extends the default theme and fills `doc-before`, `doc-after`, `sidebar-nav-before` and `layout-top`. VitePress 1.6.4 exposes these slots through `VPContent` / `VPSidebar`. No guide file needed changing.
+- **Derive navigation from the generated sidebar.** `ChapterBanner.vue` and `ChapterNav.vue` import `../sidebar.json` and group items by the `NN-` prefix in their links. Renaming a guide file without keeping its number breaks the chapter grouping — a good reason to let the number lead the filename.
+- **The banner diagram uses the same Mermaid pipeline.** It generates a `flowchart LR` from the chapter's sections and base64-encodes it into `data-source`, so `MermaidMount.vue` renders and re-renders it on theme changes exactly like a note diagram.
+- **Prev/next is chapter-level, not page-level.** VitePress already adds small previous/next links per page; the extra footer links whole chapters (01 → 02 → 03), which is what a course reader needs.
+- **Expand/collapse all works through the DOM.** VitePress stores each section's open state in a child component, so `SidebarControls.vue` clicks the visible `.caret` elements. It is simple, works in the mobile drawer, and needs no internal API.
+- **Reading position is a link, not a redirect.** `MermaidMount.vue` saves the last `/guides/NN-…` path to `localStorage`; on the homepage `ChapterBanner.vue` shows a *Continue where you left off* card. Forcing a redirect on every home visit was avoided because it hides the onboarding hub from returning readers.
+- **Use `withBase()` for links in theme components.** Hard-coded `/guides/...` hrefs would break under the `/qms-demo/` base.
+- **SSR has no `btoa` or `localStorage`.** The banner's encoder falls back to `Buffer` in Node; reading position is guarded by `typeof window`. Forgetting either breaks `npm run docs:build`.
+
 ## 5. Git and authentication
 
 - GitHub rejects account passwords for Git operations. Use a personal access token **as** the password, or SSH keys.

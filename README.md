@@ -202,6 +202,13 @@ PUBLISHED_ROOT_FILES = ['index.md']
 - `wikilinks.mjs` uses it too: a link to a real vault note that is not published renders as a dimmed **"(not published)"** marker, never a dead 404. Guides link to about 40 such notes (policies, registers, ISO clauses, records) — those live in Tolaria, not on this site.
 - To change the public scope, edit **only** `PUBLISHED_FOLDERS`. Do not hand-edit `sidebar.json` or the exclusion list.
 
+### Reader experience
+
+- Each chapter page (`0N-*.md`) opens with a Nord banner: chapter number, a small generated Mermaid map of its sections, and a child-page list.
+- A previous / next chapter footer at the bottom of each chapter page lets readers walk 01 → 07 without returning to the sidebar.
+- **Expand all / Collapse all** controls sit above the sidebar tree.
+- The site remembers the last guide you opened; the homepage shows a *Continue where you left off* link to it. This is a convenience link, not a forced redirect.
+
 Local preview and build:
 
 ```sh

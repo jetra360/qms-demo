@@ -34,6 +34,8 @@ Everything else in the vault — work instructions, policies, SOPs, records, aud
 
 Wikilinks between published guides become real links. Search runs entirely in the browser — no server. Local search only indexes the pages on this site, so it will not surface a controlled document that lives in Tolaria.
 
+Each chapter opens with a small map of its sections, and ends with links to the previous and next chapter. The sidebar can expand or collapse all chapters at once, and the site remembers the last guide you read so you can pick up where you left off.
+
 ## Helpful to know
 
 - Mermaid diagrams are rendered as diagrams, in both light and dark mode.

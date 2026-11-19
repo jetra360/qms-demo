@@ -71,9 +71,20 @@ function schedule() {
   nextTick(render)
 }
 
+function savePosition(p) {
+  if (typeof window === 'undefined') return
+  const normalized = String(p).replace(/^\/qms-demo/, '').replace(/\.html$/, '')
+  if (/^\/guides\/\d{2}-/.test(normalized)) {
+    window.localStorage.setItem('qms-last-guide', normalized)
+  }
+}
+
 onMounted(() => {
   schedule()
-  stopWatch = watch(() => route.path, schedule)
+  stopWatch = watch(() => route.path, (p) => {
+    savePosition(p)
+    schedule()
+  }, { immediate: true })
 
   // Redraw when the reader switches between light and dark mode.
   const html = document.documentElement
