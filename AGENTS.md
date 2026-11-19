@@ -13,6 +13,7 @@ This vault is a controlled document system. Files are the source of truth; edit 
 - The sidebar is generated from the numeric guide prefixes (`01` chapter → `01.2` section → `01.2.1` detail). Do not hand-edit `sidebar.json`; rename guide files carefully so numbering stays meaningful.
 - Mermaid diagrams are rendered client-side from a base64 `data-source` attribute (`mermaid.mjs` + `theme/MermaidMount.vue`). Never put literal newlines-only Mermaid source in raw HTML — VitePress collapses them. The same encoding is used by `theme/ChapterBanner.vue` for its generated chapter map.
 - Reader helpers live in `theme/`: `ChapterBanner.vue` (chapter landing banner + continue-reading link), `ChapterNav.vue` (previous/next chapter), `SidebarControls.vue` (expand/collapse all). They read `sidebar.json`, so regenerate the sidebar after renaming or renumbering guides.
+- Sidebar type is intentionally small (~14px chapters, ~13px sections, ~12px details). Do not enlarge it to "improve readability" — it competes with the article. VitePress scopes `.VPSidebar`, so global padding overrides need `!important` on left/right/bottom only.
 - Wikilinks to vault notes outside the published scope must render as the dimmed "not published" marker from `theme/custom.css`, not as a 404. Do not simply add a link to an excluded page and assume it will work.
 - After any site change, run `npm run docs:build` and test sidebar toggling, the theme switch and one "not published" marker in a browser, not just the build result.
 

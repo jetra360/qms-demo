@@ -65,38 +65,71 @@
   --vp-c-gutter: var(--nord-2);
 }
 
-/* ---- Sidebar: group (level 0), chapters (1), sections (2), details (3) ---- */
+/* ---- Sidebar: compact navigation, not reading content ----
+   Group (level 0) → chapters (1) → sections (2) → details (3).
+   The hierarchy is kept through size and weight, but every step is small
+   enough that the article remains the visual focus. */
+/* VitePress scopes .VPSidebar with a data attribute, so plain declarations
+   lose. Override only the horizontal/bottom padding; keep its top padding,
+   which clears the fixed navigation bar. */
+.VPSidebar {
+  padding-right: 16px !important;
+  padding-bottom: 64px !important;
+  padding-left: 16px !important;
+  font-size: 13px;
+}
+
+.VPSidebar .group {
+  padding-top: 6px;
+}
+
+.VPSidebar .VPSidebarItem > .item {
+  padding: 3px 0;
+  line-height: 1.35;
+}
+
 .VPSidebarItem.level-0 > .item .text {
-  font-size: 0.75rem;
+  font-size: 0.65rem;
   font-weight: 700;
+  line-height: 1.3;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--vp-c-text-3);
 }
 
 .VPSidebarItem.level-1 > .item {
-  padding-left: 10px;
-  border-left: 3px solid var(--vp-c-brand-1);
+  padding-left: 8px;
+  border-left: 2px solid var(--vp-c-brand-1);
   border-radius: 2px;
 }
 
 .VPSidebarItem.level-1 > .item .text {
-  font-size: clamp(1rem, 0.96rem + 0.2vw, 1.1rem);
+  font-size: clamp(0.78rem, 0.75rem + 0.15vw, 0.86rem);
   font-weight: 700;
-  line-height: 1.35;
+  line-height: 1.3;
   letter-spacing: 0.01em;
   color: var(--vp-c-brand-1);
 }
 
 .VPSidebarItem.level-2 > .item .text {
-  font-size: clamp(0.92rem, 0.9rem + 0.1vw, 0.98rem);
+  font-size: clamp(0.74rem, 0.72rem + 0.1vw, 0.8rem);
   font-weight: 600;
+  line-height: 1.3;
 }
 
 .VPSidebarItem.level-3 > .item .text {
-  font-size: clamp(0.85rem, 0.83rem + 0.1vw, 0.9rem);
+  font-size: clamp(0.7rem, 0.68rem + 0.1vw, 0.76rem);
   font-weight: 500;
+  line-height: 1.3;
   color: var(--vp-c-text-2);
+}
+
+@media (max-width: 959px) {
+  .VPSidebar {
+    padding-right: 14px !important;
+    padding-bottom: 56px !important;
+    padding-left: 14px !important;
+  }
 }
 
 /* ---- Mermaid diagrams ---- */
@@ -291,16 +324,17 @@
 
 /* ---- Sidebar expand / collapse controls ---- */
 .sidebar-controls {
-  margin: 0 0 0.9rem;
-  padding-bottom: 0.75rem;
+  margin: 0 0 0.65rem;
+  padding-bottom: 0.55rem;
   border-bottom: 1px solid var(--vp-c-divider);
 }
 
 .sidebar-controls__label {
   display: block;
-  margin-bottom: 0.45rem;
+  margin-bottom: 0.35rem;
   color: var(--vp-c-text-3);
-  font-size: 0.7rem;
+  font-size: 0.62rem;
+  line-height: 1.3;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -308,17 +342,18 @@
 
 .sidebar-controls__buttons {
   display: flex;
-  gap: 0.4rem;
+  gap: 0.35rem;
 }
 
 .sidebar-controls button {
   flex: 1;
-  padding: 0.35rem 0.4rem;
+  padding: 0.28rem 0.35rem;
   border: 1px solid var(--vp-c-divider);
   border-radius: 6px;
   background: var(--vp-c-bg-soft);
   color: var(--vp-c-text-2);
-  font-size: 0.75rem;
+  font-size: 0.68rem;
+  line-height: 1.3;
   cursor: pointer;
 }
 

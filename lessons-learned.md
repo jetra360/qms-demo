@@ -105,6 +105,8 @@ The whole-vault site was replaced by a curated site containing only `guides/` (p
 - **Reading position is a link, not a redirect.** `MermaidMount.vue` saves the last `/guides/NN-…` path to `localStorage`; on the homepage `ChapterBanner.vue` shows a *Continue where you left off* card. Forcing a redirect on every home visit was avoided because it hides the onboarding hub from returning readers.
 - **Use `withBase()` for links in theme components.** Hard-coded `/guides/...` hrefs would break under the `/qms-demo/` base.
 - **SSR has no `btoa` or `localStorage`.** The banner's encoder falls back to `Buffer` in Node; reading position is guarded by `typeof window`. Forgetting either breaks `npm run docs:build`.
+- **Sidebar typography must stay compact.** Chapter text is ~13.8px, sections ~12.8px, details ~12.1px, with line-height 1.3 and 3px item padding. The hierarchy is expressed through size/weight, not large type — the article should be the visual focus. On narrow screens the drawer is ~320px, so horizontal padding was reduced to 14px to avoid three-line chapter titles.
+- **VitePress scopes `.VPSidebar` with a `data-v-…` attribute.** A plain `.VPSidebar { padding: … }` rule loses to the scoped default despite appearing later. Override only `padding-right/left/bottom` with `!important` and leave the top padding alone — it clears the fixed nav bar at desktop widths.
 
 ## 5. Git and authentication
 
