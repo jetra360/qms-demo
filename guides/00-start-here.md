@@ -50,7 +50,7 @@ flowchart LR
 
 Each tier below has its own page, and each branch has its own page with one flowchart, an analogy, a *Try it* exercise and links back.
 
-```mermaid
+```mermaid wide
 flowchart TD
     H(["00 Start here"])
     H --> T1["01 Orient"]

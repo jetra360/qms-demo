@@ -16,6 +16,11 @@ export default defineConfig({
   description: 'Guides from the QMS_demo vault',
   base: '/qms-demo/',
   srcDir: '..',
+  // Apply the saved sidebar preference before paint, so returning readers do
+  // not see the navigation flash before it is hidden.
+  head: [
+    ['script', {}, "try{if(localStorage.getItem('qms-sidebar-hidden')==='1')document.documentElement.classList.add('hide-sidebar')}catch(e){}"],
+  ],
   // Curated site: every vault note still exists, but only guides/
   // (plus the homepage) are rendered and searchable.
   srcExclude,

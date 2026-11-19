@@ -12,11 +12,15 @@ export function mermaidPlugin(md) {
 
   md.renderer.rules.fence = (tokens, idx, options, env, self) => {
     const token = tokens[idx]
-    const lang = token.info.trim().split(/\s+/)[0].toLowerCase()
+    const parts = token.info.trim().split(/\s+/)
+    const lang = parts[0].toLowerCase()
     if (lang === 'mermaid') {
       const code = token.content.trim()
       const encoded = Buffer.from(code, 'utf8').toString('base64')
-      return `<div class="mermaid" data-mermaid data-source="${encoded}"></div>\n`
+      // `mermaid wide` opts a large diagram into a wider, scrollable view.
+      const wide = parts.includes('wide')
+      const cls = wide ? 'mermaid mermaid-wide' : 'mermaid'
+      return `<div class="${cls}" data-mermaid data-source="${encoded}"></div>\n`
     }
     return defaultFence(tokens, idx, options, env, self)
   }

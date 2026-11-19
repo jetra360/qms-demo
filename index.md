@@ -34,7 +34,9 @@ Everything else in the vault — work instructions, policies, SOPs, records, aud
 
 Wikilinks between published guides become real links. Search runs entirely in the browser — no server. Local search only indexes the pages on this site, so it will not surface a controlled document that lives in Tolaria.
 
-Each chapter opens with a small map of its sections, and ends with links to the previous and next chapter. The sidebar can expand or collapse all chapters at once, and the site remembers the last guide you read so you can pick up where you left off.
+Each chapter opens with a small map of its sections, and ends with links to the previous and next chapter. The sidebar can expand or collapse all chapters at once, or be hidden completely from the top bar so the article has the full width. The site remembers the last guide you read so you can pick up where you left off.
+
+The large branch-tree overview is shown in a wide, scrollable view so its boxes stay readable. If a diagram ever looks like an empty card, it is still preparing — give it a moment.
 
 ## Helpful to know
 

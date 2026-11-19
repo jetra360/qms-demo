@@ -14,6 +14,8 @@ This vault is a controlled document system. Files are the source of truth; edit 
 - Mermaid diagrams are rendered client-side from a base64 `data-source` attribute (`mermaid.mjs` + `theme/MermaidMount.vue`). Never put literal newlines-only Mermaid source in raw HTML — VitePress collapses them. The same encoding is used by `theme/ChapterBanner.vue` for its generated chapter map.
 - Reader helpers live in `theme/`: `ChapterBanner.vue` (chapter landing banner + continue-reading link), `ChapterNav.vue` (previous/next chapter), `SidebarControls.vue` (expand/collapse all). They read `sidebar.json`, so regenerate the sidebar after renaming or renumbering guides.
 - Sidebar type is intentionally small (~14px chapters, ~13px sections, ~12px details). Do not enlarge it to "improve readability" — it competes with the article. VitePress scopes `.VPSidebar`, so global padding overrides need `!important` on left/right/bottom only.
+- The sidebar hide control uses the `nav-bar-content-before` slot and is ordered before the search box (search gets `order: 10`). `nav-bar-title-after` is **inside the title anchor**, so a button there would navigate to the homepage.
+- Mark a large diagram as `mermaid wide` in the note to get a wide, horizontally scrollable view. Never style an unrendered `.mermaid` container as a card — `MermaidMount.vue` adds `mermaid-ready` only after an SVG exists.
 - Wikilinks to vault notes outside the published scope must render as the dimmed "not published" marker from `theme/custom.css`, not as a 404. Do not simply add a link to an excluded page and assume it will work.
 - After any site change, run `npm run docs:build` and test sidebar toggling, the theme switch and one "not published" marker in a browser, not just the build result.
 

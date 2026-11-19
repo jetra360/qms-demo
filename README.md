@@ -208,6 +208,8 @@ PUBLISHED_ROOT_FILES = ['index.md']
 - A previous / next chapter footer at the bottom of each chapter page lets readers walk 01 → 07 without returning to the sidebar.
 - **Expand all / Collapse all** controls sit above the sidebar tree.
 - The site remembers the last guide you opened; the homepage shows a *Continue where you left off* link to it. This is a convenience link, not a forced redirect.
+- A **Hide navigation / Show navigation** control at the left of the top bar (before the search box) collapses the left sidebar and gives the article the full width. The choice is remembered.
+- Mermaid diagrams render as SVGs in both themes. Empty grey cards are never shown: a container is styled only once its diagram is ready. Very large overview diagrams use a `mermaid wide` fence and scroll horizontally with readable node sizes, and have an **Expand overview** button that opens a full-screen, zoomable view.
 
 Local preview and build:
 
