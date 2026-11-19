@@ -7,7 +7,7 @@ tags:
   - website
 description: "Homepage of the published QMS site — guides generated from the vault"
 ---
-# Tolaria QMS
+# QMS_demo
 
 A small, working Quality Management System built as a plain folder of Markdown files. This site is generated from that same vault, so a change to any guide becomes a change here after the next commit and build.
 

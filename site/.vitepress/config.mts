@@ -12,8 +12,8 @@ const sidebar = JSON.parse(fs.readFileSync(path.join(here, 'sidebar.json'), 'utf
 const srcExclude = buildExcludes(vaultRoot, fs)
 
 export default defineConfig({
-  title: 'Tolaria QMS',
-  description: 'Guides from the Tolaria QMS vault',
+  title: 'QMS_demo',
+  description: 'Guides from the QMS_demo vault',
   base: '/qms-demo/',
   srcDir: '..',
   // Curated site: every vault note still exists, but only guides/
