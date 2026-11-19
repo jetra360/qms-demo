@@ -35,14 +35,7 @@ export default defineConfig({
     },
   },
 
-  // srcDir points outside site/, so Vite cannot find vue/server-renderer
-  // by walking up from a note in the vault root. Give it an explicit path.
-  vite: {
-    resolve: {
-      alias: [
-        { find: 'vue/server-renderer', replacement: path.resolve(here, '../node_modules/vue/server-renderer/index.mjs') },
-        { find: /^vue$/, replacement: path.resolve(here, '../node_modules/vue/index.mjs') },
-      ],
-    },
-  },
+  // No vue alias here: node_modules at the vault root is a symlink to
+  // site/node_modules (created by docs:prepare), so imports from notes resolve
+  // to ONE Vue instance. Aliasing 'vue' created a duplicate that broke hydration.
 })

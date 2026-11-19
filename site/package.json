@@ -4,9 +4,9 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "docs:sidebar": "node .vitepress/build-sidebar.mjs",
-    "docs:dev": "npm run docs:sidebar && vitepress dev .",
-    "docs:build": "npm run docs:sidebar && vitepress build .",
+    "docs:prepare": "node .vitepress/prepare-modules.mjs && node .vitepress/build-sidebar.mjs",
+    "docs:dev": "npm run docs:prepare && vitepress dev .",
+    "docs:build": "npm run docs:prepare && vitepress build .",
     "docs:preview": "vitepress preview ."
   },
   "devDependencies": {
