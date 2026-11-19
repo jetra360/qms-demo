@@ -104,7 +104,7 @@ async function render() {
 }
 
 function addExpandButton(node) {
-  if (!node.classList.contains('mermaid-wide') || node.querySelector('.mermaid-expand')) return
+  if (node.querySelector('.mermaid-expand')) return
   const button = document.createElement('button')
   button.type = 'button'
   button.className = 'mermaid-expand'
@@ -112,6 +112,23 @@ function addExpandButton(node) {
   button.setAttribute('aria-label', 'Expand diagram to a larger view')
   button.addEventListener('click', () => openOverlay(node))
   node.prepend(button)
+}
+
+// Use the nearest heading as the overlay title, and the diagram's own
+// viewBox width as the starting size so small diagrams are not blown up.
+function titleFor(node) {
+  let el = node.previousElementSibling
+  while (el) {
+    if (/^H[1-4]$/.test(el.tagName)) return el.textContent.trim()
+    el = el.previousElementSibling
+  }
+  return 'Diagram overview'
+}
+
+function baseWidth(svg) {
+  const viewBox = (svg.getAttribute('viewBox') || '').trim().split(/\s+/)
+  const width = Number(viewBox[2]) || 1200
+  return Math.max(900, Math.min(1600, Math.round(width)))
 }
 
 function closeOverlay() {
@@ -132,7 +149,7 @@ function openOverlay(node) {
   overlay.className = 'mermaid-overlay'
   overlay.innerHTML = `
     <div class="mermaid-overlay__bar">
-      <span class="mermaid-overlay__title">Full branch tree — overview</span>
+      <span class="mermaid-overlay__title"></span>
       <div class="mermaid-overlay__tools">
         <button type="button" data-act="out" aria-label="Zoom out">−</button>
         <button type="button" data-act="in" aria-label="Zoom in">+</button>
@@ -140,6 +157,9 @@ function openOverlay(node) {
       </div>
     </div>
     <div class="mermaid-overlay__body"></div>`
+  const name = titleFor(node)
+  overlay.querySelector('.mermaid-overlay__title').textContent =
+    name === 'Diagram overview' ? name : `${name} — overview`
 
   const clone = svg.cloneNode(true)
   clone.removeAttribute('id')
@@ -148,8 +168,9 @@ function openOverlay(node) {
   document.body.appendChild(overlay)
   document.body.style.overflow = 'hidden'
 
+  const base = baseWidth(svg)
   let zoom = 1
-  const apply = () => { clone.style.width = `${Math.round(1400 * zoom)}px` }
+  const apply = () => { clone.style.width = `${Math.round(base * zoom)}px` }
   apply()
 
   overlay.addEventListener('click', (event) => {

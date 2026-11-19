@@ -251,6 +251,11 @@ html.hide-sidebar .VPSidebar {
   color: var(--vp-c-bg);
 }
 
+.chapter-banner__diagram .mermaid-expand {
+  font-size: 0.65rem;
+  padding: 0.2rem 0.4rem;
+}
+
 /* Full-screen diagram overview */
 .mermaid-overlay {
   position: fixed;

@@ -209,7 +209,7 @@ PUBLISHED_ROOT_FILES = ['index.md']
 - **Expand all / Collapse all** controls sit above the sidebar tree.
 - The site remembers the last guide you opened; the homepage shows a *Continue where you left off* link to it. This is a convenience link, not a forced redirect.
 - A **Hide navigation / Show navigation** control at the left of the top bar (before the search box) collapses the left sidebar and gives the article the full width. The choice is remembered.
-- Mermaid diagrams render as SVGs in both themes. Empty grey cards are never shown: a container is styled only once its diagram is ready. Very large overview diagrams use a `mermaid wide` fence and scroll horizontally with readable node sizes, and have an **Expand overview** button that opens a full-screen, zoomable view.
+- Mermaid diagrams render as SVGs in both themes. Empty grey cards are never shown: a container is styled only once its diagram is ready. **Every** diagram has an **Expand overview** button that opens a full-screen, zoomable view titled from its nearest heading. Very large diagrams also use a `mermaid wide` fence so they scroll horizontally with readable node sizes.
 
 Local preview and build:
 
