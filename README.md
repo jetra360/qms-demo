@@ -33,6 +33,7 @@ Folders are kept because they mirror the source sketch and make a future static-
    - Learning: `Guides & onboarding` (71 pages across three levels)
 4. Open `dashboards/QMS overview` for the HTML dashboard, `dashboards/nc-lifecycle` for the nonconformance lifecycle, or `dashboards/sop-lifecycle` for the SOP draft-to-approval lifecycle.
 5. **New to the QMS? Start with [[00-start-here]]** — the top-level operating map. Each of its seven pathway pages has one flowchart, an analogy, and links to go deeper or come back.
+6. **Extending this build? Read [[lessons-learned]] first** — the decisions, pitfalls and fixes from the vault and website build, including the VitePress/Vue hydration trap and the field contract.
 
 ## Starting from a template
 
